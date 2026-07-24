@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f6feb">
+<title>КТА · Подготовка к магистратуре (M094)</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root{
+    --bg:#0f1420; --bg2:#161d2b; --card:#1b2334; --card2:#212b40;
+    --line:#2b3650; --txt:#e8edf6; --muted:#93a1bd; --brand:#3b82f6;
+    --brand2:#2563eb; --ok:#22c55e; --okbg:#123021; --err:#ef4444;
+    --errbg:#3a1720; --warn:#f59e0b; --warnbg:#3a2c10; --radius:16px;
+    --sh:0 6px 24px rgba(0,0,0,.35);
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#eef2f8; --bg2:#e6ecf5; --card:#ffffff; --card2:#f4f7fc;
+      --line:#dbe3ef; --txt:#131a26; --muted:#5a6a85; --brand:#2563eb;
+      --brand2:#1d4ed8; --okbg:#e5f6ec; --errbg:#fdecec; --warnbg:#fdf6e3;
+      --sh:0 6px 20px rgba(30,50,90,.12);}
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
+    background:linear-gradient(180deg,var(--bg2),var(--bg));
+    color:var(--txt); line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  #app{max-width:640px;margin:0 auto;min-height:100%;
+    padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 24px)}
+  h1,h2,h3{margin:0}
+  button{font-family:inherit;cursor:pointer;border:none}
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+
+  .top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .logo{width:44px;height:44px;border-radius:12px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--brand),#7c3aed);
+    display:grid;place-items:center;font-weight:800;color:#fff;font-size:17px;box-shadow:var(--sh)}
+  .top h1{font-size:19px;font-weight:800;letter-spacing:.2px}
+  .top p{margin:2px 0 0;font-size:12.5px}
+  .back{margin-left:auto;background:var(--card);color:var(--txt);border:1px solid var(--line);
+    padding:8px 12px;border-radius:12px;font-size:13px;font-weight:600;white-space:nowrap}
+
+  .grid{display:grid;gap:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--sh)}
+  .subj{display:flex;align-items:center;gap:14px;padding:16px;text-align:left;width:100%;
+    background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:var(--radius);
+    transition:transform .08s ease}
+  .subj:active{transform:scale(.98)}
+  .subj .ic{width:46px;height:46px;border-radius:13px;flex:0 0 auto;display:grid;place-items:center;font-size:22px}
+  .subj .tt{flex:1;min-width:0}
+  .subj .tt b{font-size:15.5px;display:block}
+  .subj .tt span{font-size:12.5px;color:var(--muted)}
+  .subj .arw{color:var(--muted);font-size:20px}
+  .bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#7c3aed);width:0}
+
+  .section-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);
+    margin:22px 4px 10px;font-weight:700}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+    padding:15px;border-radius:14px;font-size:15px;font-weight:700;color:#fff;
+    background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:var(--sh)}
+  .btn:active{filter:brightness(.95)}
+  .btn.sec{background:var(--card);color:var(--txt);border:1px solid var(--line);box-shadow:none}
+  .btn.ghost{background:transparent;color:var(--muted);box-shadow:none;font-weight:600}
+  .btn.warn{background:linear-gradient(135deg,#f59e0b,#d97706)}
+  .btn[disabled]{opacity:.45;pointer-events:none}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+  .stat b{font-size:22px;display:block}
+  .stat span{font-size:11.5px;color:var(--muted)}
+
+  /* quiz */
+  .qbar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .qprog{flex:1;height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+  .qprog>i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#7c3aed);transition:width .3s}
+  .qcount{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .chip{display:inline-block;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;
+    background:var(--card2);color:var(--muted);border:1px solid var(--line);margin-bottom:12px}
+  .qtext{font-size:17px;font-weight:600;margin:0 0 6px}
+  .multi-hint{font-size:12.5px;color:var(--warn);font-weight:600;margin:0 0 12px}
+  pre.code{background:#0b0f18;color:#d7e3f5;border:1px solid var(--line);border-radius:12px;
+    padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13.5px;overflow-x:auto;margin:0 0 14px;white-space:pre;line-height:1.45}
+  .passage{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--brand);
+    border-radius:12px;padding:14px;margin:0 0 14px;font-size:14.5px;white-space:pre-wrap;
+    max-height:260px;overflow-y:auto;line-height:1.6}
+
+  .opts{display:grid;gap:10px;margin:6px 0 4px}
+  .opt{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:14px;
+    background:var(--card);border:1.5px solid var(--line);text-align:left;width:100%;color:var(--txt);
+    font-size:14.5px;transition:border-color .12s, background .12s}
+  .opt .k{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    font-weight:800;font-size:13px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+  .opt .t{flex:1;padding-top:2px}
+  .opt.sel{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 12%, var(--card))}
+  .opt.sel .k{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .opt.correct{border-color:var(--ok);background:var(--okbg)}
+  .opt.correct .k{background:var(--ok);color:#062611;border-color:var(--ok)}
+  .opt.wrong{border-color:var(--err);background:var(--errbg)}
+  .opt.wrong .k{background:var(--err);color:#fff;border-color:var(--err)}
+  .opt.locked{pointer-events:none}
+
+  .explain{margin-top:14px;border-radius:14px;padding:14px;border:1px solid var(--line);
+    background:var(--card2);font-size:14px;display:none}
+  .explain.show{display:block;animation:fade .25s ease}
+  .explain .h{font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .footer{position:sticky;bottom:0;padding-top:12px;margin-top:16px;
+    background:linear-gradient(180deg,transparent,var(--bg) 40%)}
+
+  /* exam */
+  .examtop{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;padding:7px 12px;
+    border-radius:12px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+  .timer.low{color:var(--err);border-color:var(--err);background:var(--errbg)}
+  .gridnums{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;margin-bottom:6px;
+    scrollbar-width:thin}
+  .gridnums button{flex:0 0 auto;width:34px;height:34px;border-radius:9px;font-size:12.5px;
+    font-weight:700;background:var(--card2);color:var(--muted);border:1px solid var(--line)}
+  .gridnums button.done{background:var(--ok);color:#062611;border-color:var(--ok)}
+  .gridnums button.cur{outline:2.5px solid var(--brand);outline-offset:1px;color:var(--txt)}
+
+  /* theory */
+  .theory{font-size:14.5px;line-height:1.65}
+  .theory h3{font-size:15.5px;margin:18px 0 8px;color:var(--brand);font-weight:800}
+  .theory h3:first-child{margin-top:0}
+  .theory h4{font-size:14px;margin:14px 0 6px;font-weight:700}
+  .theory p{margin:0 0 10px}
+  .theory ul,.theory ol{margin:0 0 12px;padding-left:20px}
+  .theory li{margin-bottom:6px}
+  .theory table{width:100%;border-collapse:collapse;margin:0 0 12px;font-size:13.5px;display:block;overflow-x:auto}
+  .theory th,.theory td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .theory th{background:var(--card2);font-weight:700}
+  .theory code{background:var(--card2);padding:1px 5px;border-radius:5px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+  .theory pre{background:#0b0f18;color:#d7e3f5;border-radius:10px;padding:12px;overflow-x:auto;margin:0 0 12px}
+  .theory pre code{background:none;color:inherit;padding:0;font-size:13px;line-height:1.5}
+  .theory .warn-box{background:var(--warnbg);border:1px solid var(--warn);border-radius:11px;
+    padding:11px 13px;margin:0 0 12px;font-size:13.8px}
+  .theory sup{font-size:.75em}
+
+  /* result ring */
+  .ring{width:150px;height:150px;margin:10px auto 6px;position:relative}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .pc{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+  .ring .pc b{font-size:32px;line-height:1}
+  .ring .pc span{font-size:12px;color:var(--muted)}
+  .rowbtn{display:grid;gap:10px;margin-top:18px}
+
+  .blockrow{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid var(--line);
+    border-radius:12px;background:var(--card);margin-bottom:8px;font-size:14px}
+  .blockrow .nm{flex:1;min-width:0}
+  .blockrow .nm b{display:block;font-size:14px}
+  .blockrow .nm span{font-size:11.5px;color:var(--muted)}
+  .blockrow .sc{font-weight:800;font-size:15px;white-space:nowrap}
+  .pill{font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap}
+  .pill.ok{background:var(--okbg);color:var(--ok);border:1px solid var(--ok)}
+  .pill.bad{background:var(--errbg);color:var(--err);border:1px solid var(--err)}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="questions.js"></script>
+<script src="theory.js"></script>
+<script>
+(function(){
+  "use strict";
+  const Q  = window.KTA_QUESTIONS || [];
+  const TH = window.KTA_THEORY || {};
+  const app = document.getElementById('app');
+  const LS = 'kta_progress_v2';
+
+  /* ============ Формат реального КТА (testcenter.kz) ============
+     130 заданий, 235 минут, максимум 150 баллов.
+     Английский 50 зад. = 50 б. | Готовность 30 = 30 б.
+     Профиль-1 (алгоритмы) 30 = 30 б. | Профиль-2 (БД) 20 = 40 б. (по 2 б.)
+     Пороги: всего ≥75, английский ≥25, остальные предметы ≥7.        */
+  const EXAM = {
+    minutes: 235,
+    maxScore: 150,
+    minTotal: 75,
+    blocks: [
+      {id:'english',    count:50, perQ:1, min:25},
+      {id:'readiness',  count:30, perQ:1, min:7},
+      {id:'algorithms', count:30, perQ:1, min:7},
+      {id:'databases',  count:20, perQ:2, min:7},
+    ]
+  };
+
+  const SUBJECTS = [
+    {id:'readiness', name:'Готовность к обучению', kk:'Оқу дайындығын анықтайтын тест',
+      icon:'🧠', color:'#7c3aed', desc:'Логика, математика, задачи'},
+    {id:'english', name:'Английский язык', kk:'Ағылшын тілі',
+      icon:'🇬🇧', color:'#0ea5e9', desc:'Грамматика, времена, чтение'},
+    {id:'algorithms', name:'Алгоритмы и структуры данных', kk:'Алгоритмдер және деректер құрылымы',
+      icon:'⚙️', color:'#f59e0b', desc:'C, JS, сложность, структуры'},
+    {id:'databases', name:'Базы данных', kk:'Деректер базасы',
+      icon:'🗄️', color:'#22c55e', desc:'SQL · 1 или несколько ответов'},
+  ];
+  const subjById = id => SUBJECTS.find(s=>s.id===id);
+
+  // мелкая тема -> крупная группа
+  const TOPIC_GROUPS = {
+    readiness: {
+      'Числа и вычисления':['Проценты','Дроби','Степени и корни','Средние','Пропорции'],
+      'Логика и последовательности':['Логика','Числовые ряды','Прогрессии'],
+      'Текстовые задачи':['Уравнения','Скорость','Возраст','Совместная работа','Геометрия'],
+      'Комбинаторика и множества':['Комбинаторика','Вероятность','Множества'],
+    },
+    english: {
+      'Времена глагола (Tenses)':['Past Simple','Present Perfect','Present Continuous','Past Perfect',
+        'Future','Present Perfect Continuous','Used to','Passive Voice','Present Simple'],
+      'Грамматика':['Articles','Comparatives','Superlatives','Conditionals','Prepositions',
+        'Prepositions of time','Gerund/Infinitive','Modal verbs','Reported speech','Quantifiers',
+        'Word order','Relative clauses','Question tags','Some/Any','Adverbs','Too/Enough','So/Such','Possessive case'],
+      'Лексика':['Vocabulary','Phrasal verbs'],
+      'Чтение (Reading)':['Reading'],
+    },
+    algorithms: {
+      'Основы, C и JavaScript':['Основы','Строки в C','Заголовочные файлы C','JavaScript',
+        'C/указатели','C','Рекурсия','Массивы'],
+      'Логика и системы счисления':['Логика','Системы счисления'],
+      'Сложность и сортировки':['Сложность','Сортировки'],
+      'Структуры данных':['Структуры данных'],
+    },
+    databases: {
+      'SQL-запросы':['SQL SELECT','SQL','SQL JOIN','SQL DML','Агрегатные функции'],
+      'Команды и структура':['SQL DDL','SQL DCL','Категории команд','Ключи','Ограничения','Индексы','Объекты БД'],
+      'Теория БД':['Свойства таблицы','Нормализация','Модели данных','Транзакции'],
+    },
+  };
+  function groupOf(subject, topic){
+    const g = TOPIC_GROUPS[subject] || {};
+    for(const name in g){ if(g[name].includes(topic)) return name; }
+    return topic;
+  }
+
+  /* ---------------- storage ---------------- */
+  function load(){ try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return {}} }
+  function save(){ try{localStorage.setItem(LS, JSON.stringify(state))}catch(e){} }
+  let state = load();
+  state.answered = state.answered || {};   // id -> bool (последний результат)
+  state.seen     = state.seen     || {};   // id -> сколько раз отвечал
+  state.srs      = state.srs      || {};   // id -> {box, due}
+  state.history  = state.history  || [];   // результаты экзаменов
+
+  // интервалы повторения в днях
+  const SRS_DAYS = [0, 1, 3, 7, 16, 35];
+  const DAY = 86400000;
+  function srsUpdate(id, correct){
+    const cur = state.srs[id] || {box:0, due:0};
+    if(correct){
+      cur.box = Math.min(cur.box + 1, SRS_DAYS.length - 1);
+      cur.due = Date.now() + SRS_DAYS[cur.box]*DAY;
+    } else {
+      cur.box = 0;
+      cur.due = Date.now();       // повторить сразу
+    }
+    state.srs[id] = cur;
+  }
+  function dueList(){
+    const now = Date.now();
+    return Q.filter(q => state.srs[q.id] && state.srs[q.id].due <= now && state.answered[q.id] === false);
+  }
+  function mistakeList(){ return Q.filter(q => state.answered[q.id] === false); }
+
+  const subjQuestions = id => Q.filter(q=>q.subject===id);
+  function subjStat(id){
+    const list = subjQuestions(id);
+    let done=0, correct=0;
+    list.forEach(q=>{ if(q.id in state.answered){done++; if(state.answered[q.id])correct++;} });
+    return {total:list.length, done, correct};
+  }
+  function overall(){
+    let done=0,correct=0;
+    Q.forEach(q=>{ if(q.id in state.answered){done++; if(state.answered[q.id])correct++;} });
+    return {total:Q.length, done, correct, mistakes:mistakeList().length, due:dueList().length};
+  }
+
+  function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];} return a; }
+  const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const LETTERS = 'ABCDEFGH';
+
+  // На КТА второй профильный предмет (БД) — один или несколько ответов
+  const isMulti = q => q.type==='multi' || q.subject==='databases';
+
+  // варианты перемешиваются; отображаемая буква = позиция, проверка — по исходному ключу
+  function prepOpts(q){ return shuffle(q.options); }
+  function dispLetters(opts, keys){
+    return keys.map(k => LETTERS[opts.findIndex(o=>o.k===k)]).filter(Boolean).sort().join(', ');
+  }
+
+  /* ==================== ГЛАВНАЯ ==================== */
+  function home(){
+    const o = overall();
+    const last = state.history[state.history.length-1];
+    let h = `
+    <div class="top">
+      <div class="logo">КТА</div>
+      <div>
+        <h1>Подготовка к КТА</h1>
+        <p class="muted">Магистратура · группа M094 (ИТ)</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>${o.done}</b><span>решено из ${o.total}</span></div>
+      <div class="stat"><b>${o.done?Math.round(o.correct/o.done*100):0}%</b><span>верно</span></div>
+      <div class="stat"><b>${o.mistakes}</b><span>ошибок</span></div>
+    </div>
+
+    <div class="section-title">Разделы экзамена</div>
+    <div class="grid">`;
+    SUBJECTS.forEach(s=>{
+      const st = subjStat(s.id);
+      const pct = st.total? Math.round(st.done/st.total*100):0;
+      h += `
+      <button class="subj" data-subj="${s.id}">
+        <div class="ic" style="background:color-mix(in srgb,${s.color} 22%, transparent)">${s.icon}</div>
+        <div class="tt">
+          <b>${s.name}</b>
+          <span>${s.desc} · ${st.done}/${st.total}</span>
+          <div class="bar"><i style="width:${pct}%"></i></div>
+        </div>
+        <div class="arw">›</div>
+      </button>`;
+    });
+    h += `</div>
+
+    <div class="section-title">Режимы</div>
+    <div class="grid">
+      <button class="btn warn" id="mExam">🎯 Настоящий экзамен · 130 вопросов, 235 мин</button>
+      <button class="btn sec" id="mRepeat" ${o.due?'':'disabled'}>🔁 Повторение по расписанию ${o.due?`(${o.due})`:'— на сегодня всё'}</button>
+      <button class="btn sec" id="mMist" ${o.mistakes?'':'disabled'}>❌ Все ошибки ${o.mistakes?`(${o.mistakes})`:''}</button>
+      <button class="btn sec" id="mQuick">⚡ Быстрая тренировка · 20 вопросов</button>
+      <button class="btn sec" id="mStats">📊 Статистика и слабые темы</button>
+    </div>
+    ${last?`<p class="center muted" style="font-size:12px;margin-top:14px">
+      Последний экзамен: <b style="color:${last.passed?'var(--ok)':'var(--err)'}">${last.total} из ${EXAM.maxScore}</b> · ${last.date}</p>`:''}
+    <div class="grid" style="margin-top:16px">
+      <button class="btn ghost" id="mReset">Сбросить прогресс</button>
+    </div>
+    <p class="center muted" style="font-size:11.5px;margin-top:12px">
+      ${Q.length} вопросов с пояснениями · теория по темам<br>Прогресс сохраняется на этом устройстве
+    </p>`;
+    app.innerHTML = h;
+
+    document.querySelectorAll('.subj').forEach(b=>b.onclick=()=>subjectMenu(b.dataset.subj));
+    document.getElementById('mExam').onclick = confirmExam;
+    document.getElementById('mRepeat').onclick=()=>{ const l=dueList(); if(l.length) startQuiz(shuffle(l),'Повторение'); };
+    document.getElementById('mMist').onclick  =()=>{ const l=mistakeList(); if(l.length) startQuiz(shuffle(l),'Работа над ошибками'); };
+    document.getElementById('mQuick').onclick =()=> startQuiz(shuffle(Q).slice(0,20),'Быстрая тренировка');
+    document.getElementById('mStats').onclick = statsScreen;
+    document.getElementById('mReset').onclick=()=>{
+      if(confirm('Сбросить весь прогресс, статистику и историю экзаменов?')){
+        state={answered:{},seen:{},srs:{},history:[]}; save(); home();
+      }
+    };
+    window.scrollTo(0,0);
+  }
+
+  /* ============ МЕНЮ РАЗДЕЛА (крупные темы) ============ */
+  function subjectMenu(id){
+    const s = subjById(id);
+    const list = subjQuestions(id);
+    const groups = {};
+    list.forEach(q=>{ const g=groupOf(id,q.topic); (groups[g]=groups[g]||[]).push(q); });
+
+    let h = `
+    <div class="top">
+      <div class="logo" style="background:linear-gradient(135deg,${s.color},#7c3aed)">${s.icon}</div>
+      <div><h1 style="font-size:17px">${s.name}</h1><p class="muted">${s.kk}</p></div>
+      <button class="back" id="back">‹ Домой</button>
+    </div>
+    <div class="grid">
+      <button class="btn" id="allT">▶ Все вопросы раздела (${list.length})</button>
+    </div>
+    <div class="section-title">Темы — теория и практика</div>
+    <div class="grid">`;
+    Object.keys(groups).forEach(g=>{
+      const arr=groups[g];
+      const done=arr.filter(q=>q.id in state.answered).length;
+      const hasTheory = !!TH[id+'|'+g];
+      h+=`<button class="subj" data-topic="${esc(g)}">
+        <div class="ic" style="background:var(--card2);font-size:19px">${hasTheory?'📖':'📝'}</div>
+        <div class="tt"><b style="font-size:14.5px">${esc(g)}</b>
+          <span>${done}/${arr.length} решено${hasTheory?' · есть теория':''}</span></div>
+        <div class="arw">›</div>
+      </button>`;
+    });
+    h+=`</div>`;
+    app.innerHTML=h;
+    document.getElementById('back').onclick=home;
+    document.getElementById('allT').onclick=()=>startQuiz(shuffle(list), s.name);
+    document.querySelectorAll('[data-topic]').forEach(b=>{
+      b.onclick=()=>topicScreen(id, b.dataset.topic, groups[b.dataset.topic]);
+    });
+    window.scrollTo(0,0);
+  }
+
+  /* ============ ЭКРАН ТЕМЫ: теория + практика ============ */
+  function topicScreen(subject, group, list){
+    const s = subjById(subject);
+    const theory = TH[subject+'|'+group];
+    const done = list.filter(q=>q.id in state.answered).length;
+    app.innerHTML = `
+    <div class="top">
+      <div class="logo" style="background:linear-gradient(135deg,${s.color},#7c3aed);font-size:20px">📖</div>
+      <div><h1 style="font-size:16.5px">${esc(group)}</h1><p class="muted">${s.name} · ${done}/${list.length} решено</p></div>
+      <button class="back" id="back">‹ Назад</button>
+    </div>
+    ${theory
+      ? `<div class="card" style="padding:16px"><div class="theory">${theory}</div></div>`
+      : `<div class="card" style="padding:16px"><p class="muted" style="margin:0">Теория по этой теме пока не добавлена — переходи сразу к практике.</p></div>`}
+    <div class="footer">
+      <button class="btn" id="practice">▶ Практика · ${list.length} вопросов</button>
+    </div>`;
+    document.getElementById('back').onclick=()=>subjectMenu(subject);
+    document.getElementById('practice').onclick=()=>startQuiz(shuffle(list), group);
+    window.scrollTo(0,0);
+  }
+
+  /* ==================== ПРАКТИКА ==================== */
+  let quiz=null;
+  function startQuiz(list, title){
+    if(!list.length) return;
+    quiz={list, title, i:0, sel:[], checked:false, right:0, opts:prepOpts(list[0])};
+    renderQ();
+  }
+
+  function renderQ(){
+    const q = quiz.list[quiz.i];
+    const s = subjById(q.subject);
+    const pct = Math.round(quiz.i/quiz.list.length*100);
+    let h = `
+    <div class="qbar">
+      <button class="back" id="qexit" style="margin:0">✕</button>
+      <div class="qprog"><i style="width:${pct}%"></i></div>
+      <div class="qcount">${quiz.i+1}/${quiz.list.length}</div>
+    </div>
+    <span class="chip">${s?s.icon+' '+s.name:''} · ${esc(q.topic)}</span>`;
+    if(q.passage) h+=`<div class="passage">${esc(q.passage)}</div>`;
+    h+=`<p class="qtext">${esc(q.q)}</p>`;
+    if(isMulti(q)) h+=`<p class="multi-hint">⚠ Один или несколько правильных ответов (не более трёх) — отметьте все верные</p>`;
+    if(q.code) h+=`<pre class="code">${esc(q.code)}</pre>`;
+    h+=`<div class="opts" id="opts">`;
+    quiz.opts.forEach((o,idx)=>{
+      h+=`<button class="opt" data-k="${o.k}"><span class="k">${LETTERS[idx]}</span><span class="t">${esc(o.t)}</span></button>`;
+    });
+    h+=`</div>
+    <div class="explain" id="exp"><div class="h" id="expH"></div><div id="expB"></div></div>
+    <div class="footer"><button class="btn" id="act" disabled>Проверить</button></div>`;
+    app.innerHTML=h;
+
+    document.getElementById('qexit').onclick=()=>{ if(confirm('Выйти? Отвеченные вопросы сохранены.')) home(); };
+    document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>toggle(b.dataset.k));
+    document.getElementById('act').onclick=onAct;
+    window.scrollTo(0,0);
+  }
+
+  function toggle(k){
+    if(quiz.checked) return;
+    const q=quiz.list[quiz.i];
+    if(isMulti(q)){
+      const i=quiz.sel.indexOf(k);
+      if(i>=0) quiz.sel.splice(i,1); else quiz.sel.push(k);
+    } else quiz.sel=[k];
+    document.querySelectorAll('.opt').forEach(b=>b.classList.toggle('sel', quiz.sel.includes(b.dataset.k)));
+    document.getElementById('act').disabled = quiz.sel.length===0;
+  }
+
+  const onAct = () => quiz.checked ? nextQ() : checkAnswer();
+
+  function checkAnswer(){
+    const q=quiz.list[quiz.i];
+    quiz.checked=true;
+    const isRight = q.correct.slice().sort().join(',') === quiz.sel.slice().sort().join(',');
+
+    document.querySelectorAll('.opt').forEach(b=>{
+      const k=b.dataset.k;
+      b.classList.add('locked'); b.classList.remove('sel');
+      if(q.correct.includes(k)) b.classList.add('correct');
+      else if(quiz.sel.includes(k)) b.classList.add('wrong');
+    });
+
+    state.answered[q.id]=isRight;
+    state.seen[q.id]=(state.seen[q.id]||0)+1;
+    srsUpdate(q.id, isRight);
+    if(isRight) quiz.right++;
+    save();
+
+    document.getElementById('expH').innerHTML = isRight
+      ? '<span style="color:var(--ok)">✓ Верно!</span>'
+      : `<span style="color:var(--err)">✗ Неверно</span> <span class="muted" style="font-weight:600">· правильный ответ: ${dispLetters(quiz.opts,q.correct)}</span>`;
+    document.getElementById('expB').innerHTML = q.explain;
+    document.getElementById('exp').classList.add('show');
+
+    const act=document.getElementById('act');
+    act.disabled=false;
+    act.textContent = quiz.i+1<quiz.list.length ? 'Далее →' : 'Показать результат';
+  }
+
+  function nextQ(){
+    quiz.i++;
+    if(quiz.i>=quiz.list.length) return quizResult();
+    quiz.sel=[]; quiz.checked=false; quiz.opts=prepOpts(quiz.list[quiz.i]);
+    renderQ();
+  }
+
+  function quizResult(){
+    const total=quiz.list.length, right=quiz.right;
+    const pct=Math.round(right/total*100);
+    const C=2*Math.PI*64, off=C*(1-pct/100);
+    const color = pct>=80?'var(--ok)':pct>=50?'var(--warn)':'var(--err)';
+    const msg = pct>=80?'Отличный результат! 🎉':pct>=50?'Неплохо, но есть куда расти 💪':'Нужно ещё поработать 📚';
+    const wrong = quiz.list.filter(q=>state.answered[q.id]===false);
+    app.innerHTML=`
+    <div class="top">
+      <div class="logo">КТА</div>
+      <div><h1 style="font-size:17px">${esc(quiz.title)}</h1><p class="muted">Результат</p></div>
+    </div>
+    <div class="card" style="padding:20px">
+      <div class="ring">
+        <svg width="150" height="150">
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="12"/>
+          <circle cx="75" cy="75" r="64" fill="none" stroke="${color}" stroke-width="12"
+            stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}"/>
+        </svg>
+        <div class="pc"><div><b>${pct}%</b><span>${right} из ${total}</span></div></div>
+      </div>
+      <p class="center" style="font-weight:700;margin:4px 0 0">${msg}</p>
+      <div class="stats" style="margin-top:16px">
+        <div class="stat"><b style="color:var(--ok)">${right}</b><span>верно</span></div>
+        <div class="stat"><b style="color:var(--err)">${total-right}</b><span>ошибок</span></div>
+        <div class="stat"><b>${total}</b><span>всего</span></div>
+      </div>
+    </div>
+    <div class="rowbtn">
+      ${wrong.length?`<button class="btn" id="rMist">🔁 Повторить ошибки (${wrong.length})</button>`:''}
+      <button class="btn sec" id="rAgain">↺ Пройти заново</button>
+      <button class="btn ghost" id="rHome">На главную</button>
+    </div>`;
+    const rm=document.getElementById('rMist');
+    if(rm) rm.onclick=()=>startQuiz(shuffle(wrong), 'Работа над ошибками');
+    document.getElementById('rAgain').onclick=()=>startQuiz(shuffle(quiz.list), quiz.title);
+    document.getElementById('rHome').onclick=home;
+    window.scrollTo(0,0);
+  }
+
+  /* ==================== ЭКЗАМЕН ==================== */
+  let exam=null, timerId=null;
+
+  function confirmExam(){
+    app.innerHTML=`
+    <div class="top">
+      <div class="logo" style="background:linear-gradient(135deg,#f59e0b,#d97706)">🎯</div>
+      <div><h1 style="font-size:17px">Настоящий экзамен</h1><p class="muted">Формат КТА · testcenter.kz</p></div>
+      <button class="back" id="back">‹ Домой</button>
+    </div>
+    <div class="card" style="padding:16px">
+      <div class="theory">
+        <p><b>130 заданий · 235 минут · максимум 150 баллов</b></p>
+        <table>
+          <tr><th>Блок</th><th>Заданий</th><th>Баллов</th></tr>
+          <tr><td>Английский язык</td><td>50</td><td>50</td></tr>
+          <tr><td>Готовность к обучению</td><td>30</td><td>30</td></tr>
+          <tr><td>Алгоритмы (профиль 1)</td><td>30</td><td>30</td></tr>
+          <tr><td>Базы данных (профиль 2)</td><td>20</td><td>40</td></tr>
+        </table>
+        <div class="warn-box">
+          <b>Пороги:</b> всего не менее <b>75</b> баллов, английский — не менее <b>25</b>,
+          каждый другой предмет — не менее <b>7</b>.<br>
+          Базы данных: 2 балла за полностью верный ответ, 1 балл — если отмечены только верные,
+          но не все.
+        </div>
+        <p class="muted" style="font-size:13px">Пояснения во время экзамена не показываются — весь разбор будет в конце.
+        Можно переходить между вопросами по номерам.</p>
+      </div>
+    </div>
+    <div class="footer"><button class="btn warn" id="go">Начать экзамен</button></div>`;
+    document.getElementById('back').onclick=home;
+    document.getElementById('go').onclick=startExam;
+    window.scrollTo(0,0);
+  }
+
+  function startExam(){
+    const list=[];
+    EXAM.blocks.forEach(b=>{
+      const pool = shuffle(subjQuestions(b.id));
+      list.push(...pool.slice(0, b.count));
+    });
+    exam={
+      list, i:0,
+      answers:{},                       // индекс -> массив выбранных ключей
+      opts:list.map(q=>prepOpts(q)),    // зафиксированный порядок вариантов
+      left:EXAM.minutes*60
+    };
+    if(timerId) clearInterval(timerId);
+    timerId=setInterval(tick,1000);
+    renderExam();
+  }
+
+  function tick(){
+    if(!exam) return clearInterval(timerId);
+    exam.left--;
+    const el=document.getElementById('timer');
+    if(el){
+      el.textContent=fmtTime(exam.left);
+      el.classList.toggle('low', exam.left<=600);
+    }
+    if(exam.left<=0){ clearInterval(timerId); alert('Время вышло! Экзамен завершён.'); examResult(); }
+  }
+  function fmtTime(s){
+    s=Math.max(0,s);
+    const h=Math.floor(s/3600), m=Math.floor(s%3600/60), sec=s%60;
+    return `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+  }
+
+  function renderExam(){
+    const q=exam.list[exam.i], s=subjById(q.subject);
+    const opts=exam.opts[exam.i];
+    const sel=exam.answers[exam.i]||[];
+    const answeredCount=Object.keys(exam.answers).filter(k=>exam.answers[k].length).length;
+
+    let nums='';
+    exam.list.forEach((_,idx)=>{
+      const cls=(exam.answers[idx]&&exam.answers[idx].length?'done ':'')+(idx===exam.i?'cur':'');
+      nums+=`<button class="${cls}" data-go="${idx}">${idx+1}</button>`;
+    });
+
+    let h=`
+    <div class="examtop">
+      <button class="back" id="exExit" style="margin:0">✕</button>
+      <div class="timer${exam.left<=600?' low':''}" id="timer">${fmtTime(exam.left)}</div>
+      <div class="qcount" style="margin-left:auto">${answeredCount}/${exam.list.length}</div>
+    </div>
+    <div class="gridnums" id="nums">${nums}</div>
+    <span class="chip">${s.icon} ${s.name} · вопрос ${exam.i+1}</span>`;
+    if(q.passage) h+=`<div class="passage">${esc(q.passage)}</div>`;
+    h+=`<p class="qtext">${esc(q.q)}</p>`;
+    if(isMulti(q)) h+=`<p class="multi-hint">⚠ Один или несколько правильных ответов (не более трёх)</p>`;
+    if(q.code) h+=`<pre class="code">${esc(q.code)}</pre>`;
+    h+=`<div class="opts">`;
+    opts.forEach((o,idx)=>{
+      h+=`<button class="opt${sel.includes(o.k)?' sel':''}" data-k="${o.k}">
+        <span class="k">${LETTERS[idx]}</span><span class="t">${esc(o.t)}</span></button>`;
+    });
+    h+=`</div>
+    <div class="footer">
+      <div class="row2">
+        <button class="btn sec" id="prev" ${exam.i===0?'disabled':''}>← Назад</button>
+        <button class="btn" id="next">${exam.i===exam.list.length-1?'Завершить':'Далее →'}</button>
+      </div>
+      <button class="btn ghost" id="finish" style="margin-top:8px">Завершить экзамен досрочно</button>
+    </div>`;
+    app.innerHTML=h;
+
+    document.getElementById('exExit').onclick=()=>{
+      if(confirm('Выйти из экзамена? Результат не сохранится.')){ clearInterval(timerId); exam=null; home(); }
+    };
+    document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>examToggle(b.dataset.k));
+    document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{ exam.i=+b.dataset.go; renderExam(); });
+    document.getElementById('prev').onclick=()=>{ if(exam.i>0){exam.i--; renderExam();} };
+    document.getElementById('next').onclick=()=>{
+      if(exam.i===exam.list.length-1){ if(confirm('Завершить экзамен и посмотреть результат?')) examResult(); }
+      else { exam.i++; renderExam(); }
+    };
+    document.getElementById('finish').onclick=()=>{
+      const un=exam.list.length-Object.keys(exam.answers).filter(k=>exam.answers[k].length).length;
+      if(confirm(un?`Не отвечено вопросов: ${un}. Всё равно завершить?`:'Завершить экзамен?')) examResult();
+    };
+    // прокрутить сетку номеров к текущему
+    const cur=document.querySelector('.gridnums .cur');
+    if(cur) cur.scrollIntoView({block:'nearest', inline:'center'});
+    window.scrollTo(0,0);
+  }
+
+  function examToggle(k){
+    const q=exam.list[exam.i];
+    let sel=exam.answers[exam.i]||[];
+    if(isMulti(q)){
+      const i=sel.indexOf(k);
+      if(i>=0) sel.splice(i,1);
+      else { if(sel.length>=3) return; sel.push(k); }   // на КТА не более трёх
+    } else sel=[k];
+    exam.answers[exam.i]=sel;
+    document.querySelectorAll('.opt').forEach(b=>b.classList.toggle('sel', sel.includes(b.dataset.k)));
+    const nb=document.querySelector(`[data-go="${exam.i}"]`);
+    if(nb) nb.classList.toggle('done', sel.length>0);
+    const cnt=document.querySelector('.examtop .qcount');
+    if(cnt) cnt.textContent=`${Object.keys(exam.answers).filter(k=>exam.answers[k].length).length}/${exam.list.length}`;
+  }
+
+  function scoreOne(q, sel){
+    const corr=q.correct.slice().sort().join(',');
+    const got=(sel||[]).slice().sort().join(',');
+    if(!sel || !sel.length) return 0;
+    if(corr===got) return isMulti(q)&&q.subject==='databases' ? 2 : 1;
+    // частичный балл: отмечены только верные, но не все (только для блока БД)
+    if(q.subject==='databases' && sel.every(k=>q.correct.includes(k))) return 1;
+    return 0;
+  }
+
+  function examResult(){
+    clearInterval(timerId);
+    const per={};
+    EXAM.blocks.forEach(b=>per[b.id]={score:0,max:b.count*b.perQ,right:0,count:0,min:b.min});
+    exam.list.forEach((q,idx)=>{
+      const sel=exam.answers[idx]||[];
+      const sc=scoreOne(q,sel);
+      const p=per[q.subject];
+      p.score+=sc; p.count++;
+      if(sc===(q.subject==='databases'?2:1)) p.right++;
+      // экзамен тоже влияет на прогресс и повторение
+      const full = q.correct.slice().sort().join(',')===sel.slice().sort().join(',');
+      if(sel.length){ state.answered[q.id]=full; state.seen[q.id]=(state.seen[q.id]||0)+1; srsUpdate(q.id, full); }
+    });
+    const total=Object.values(per).reduce((a,p)=>a+p.score,0);
+    const failed=EXAM.blocks.filter(b=>per[b.id].score<b.min);
+    const passed = total>=EXAM.minTotal && failed.length===0;
+    state.history.push({date:new Date().toLocaleDateString('ru-RU'), total, passed});
+    if(state.history.length>20) state.history.shift();
+    save();
+
+    const pct=Math.round(total/EXAM.maxScore*100);
+    const C=2*Math.PI*64, off=C*(1-pct/100);
+    const color=passed?'var(--ok)':'var(--err)';
+
+    let rows='';
+    EXAM.blocks.forEach(b=>{
+      const p=per[b.id], s=subjById(b.id), ok=p.score>=b.min;
+      rows+=`<div class="blockrow">
+        <span style="font-size:19px">${s.icon}</span>
+        <div class="nm"><b>${s.name}</b><span>${p.right} верных из ${p.count} · порог ${b.min}</span></div>
+        <div class="sc">${p.score}<span class="muted" style="font-weight:600">/${p.max}</span></div>
+        <span class="pill ${ok?'ok':'bad'}">${ok?'порог ✓':'ниже'}</span>
+      </div>`;
+    });
+
+    const wrongList=exam.list.filter((q,idx)=>{
+      const sel=exam.answers[idx]||[];
+      return q.correct.slice().sort().join(',')!==sel.slice().sort().join(',');
+    });
+
+    app.innerHTML=`
+    <div class="top">
+      <div class="logo" style="background:linear-gradient(135deg,#f59e0b,#d97706)">🎯</div>
+      <div><h1 style="font-size:17px">Результат экзамена</h1><p class="muted">Формат КТА · 130 заданий</p></div>
+    </div>
+    <div class="card" style="padding:20px">
+      <div class="ring">
+        <svg width="150" height="150">
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="12"/>
+          <circle cx="75" cy="75" r="64" fill="none" stroke="${color}" stroke-width="12"
+            stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}"/>
+        </svg>
+        <div class="pc"><div><b>${total}</b><span>из ${EXAM.maxScore} баллов</span></div></div>
+      </div>
+      <p class="center" style="font-weight:800;margin:6px 0 2px;color:${color}">
+        ${passed?'Порог пройден 🎉':'Порог не пройден'}
+      </p>
+      <p class="center muted" style="font-size:12.5px;margin:0">
+        нужно ≥ ${EXAM.minTotal} баллов всего${failed.length?` · не добрано: ${failed.map(b=>subjById(b.id).name).join(', ')}`:''}
+      </p>
+    </div>
+    <div class="section-title">По блокам</div>
+    ${rows}
+    <div class="rowbtn">
+      ${wrongList.length?`<button class="btn" id="rev">📖 Разбор ошибок (${wrongList.length})</button>`:''}
+      <button class="btn sec" id="again">↺ Пройти экзамен заново</button>
+      <button class="btn ghost" id="hm">На главную</button>
+    </div>`;
+    const rv=document.getElementById('rev');
+    if(rv) rv.onclick=()=>startQuiz(wrongList,'Разбор ошибок экзамена');
+    document.getElementById('again').onclick=confirmExam;
+    document.getElementById('hm').onclick=home;
+    exam=null;
+    window.scrollTo(0,0);
+  }
+
+  /* ==================== СТАТИСТИКА ==================== */
+  function statsScreen(){
+    const o=overall();
+    // прогноз баллов по каждому блоку
+    let rows='';
+    EXAM.blocks.forEach(b=>{
+      const s=subjById(b.id), st=subjStat(b.id);
+      const rate = st.done? st.correct/st.done : 0;
+      const proj = Math.round(rate * b.count * b.perQ);
+      const ok = proj>=b.min;
+      rows+=`<div class="blockrow">
+        <span style="font-size:19px">${s.icon}</span>
+        <div class="nm"><b>${s.name}</b>
+          <span>${st.done? Math.round(rate*100)+'% верных · решено '+st.done+'/'+st.total : 'нет данных'}</span></div>
+        <div class="sc">~${proj}<span class="muted" style="font-weight:600">/${b.count*b.perQ}</span></div>
+        ${st.done>=5?`<span class="pill ${ok?'ok':'bad'}">${ok?'порог ✓':'риск'}</span>`:''}
+      </div>`;
+    });
+
+    // слабые темы
+    const gstat={};
+    Q.forEach(q=>{
+      if(!(q.id in state.answered)) return;
+      const key=q.subject+'|'+groupOf(q.subject,q.topic);
+      const g=gstat[key]=gstat[key]||{done:0,ok:0};
+      g.done++; if(state.answered[q.id]) g.ok++;
+    });
+    const weak=Object.entries(gstat).filter(([,g])=>g.done>=3)
+      .map(([k,g])=>({k, rate:g.ok/g.done, done:g.done}))
+      .sort((a,b)=>a.rate-b.rate).slice(0,5);
+
+    let weakHtml = weak.length
+      ? weak.map(w=>{
+          const [sub,grp]=w.k.split('|');
+          const col = w.rate<0.5?'var(--err)':w.rate<0.75?'var(--warn)':'var(--ok)';
+          return `<button class="subj" data-weak="${esc(w.k)}">
+            <div class="ic" style="background:var(--card2);font-size:17px">${subjById(sub).icon}</div>
+            <div class="tt"><b style="font-size:14px">${esc(grp)}</b>
+              <span>${Math.round(w.rate*100)}% верных · решено ${w.done}</span>
+              <div class="bar"><i style="width:${Math.round(w.rate*100)}%;background:${col}"></i></div></div>
+            <div class="arw">›</div></button>`;
+        }).join('')
+      : `<p class="muted" style="font-size:13.5px;margin:0 4px">Порешай хотя бы по 3 вопроса в темах — здесь появятся самые слабые места.</p>`;
+
+    const hist = state.history.slice().reverse().slice(0,5);
+    app.innerHTML=`
+    <div class="top">
+      <div class="logo">📊</div>
+      <div><h1 style="font-size:17px">Статистика</h1><p class="muted">Прогноз баллов и слабые темы</p></div>
+      <button class="back" id="back">‹ Домой</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>${o.done}</b><span>решено из ${o.total}</span></div>
+      <div class="stat"><b>${o.done?Math.round(o.correct/o.done*100):0}%</b><span>верно</span></div>
+      <div class="stat"><b>${o.due}</b><span>к повторению</span></div>
+    </div>
+    <div class="section-title">Прогноз баллов на экзамене</div>
+    ${rows}
+    <p class="muted" style="font-size:11.5px;margin:6px 4px 0">
+      Оценка по твоему проценту верных ответов. Нужно ≥ ${EXAM.minTotal} баллов всего.</p>
+    <div class="section-title">Слабые темы</div>
+    <div class="grid">${weakHtml}</div>
+    ${hist.length?`<div class="section-title">История экзаменов</div>
+      ${hist.map(x=>`<div class="blockrow"><div class="nm"><b>${x.date}</b></div>
+        <div class="sc" style="color:${x.passed?'var(--ok)':'var(--err)'}">${x.total}/${EXAM.maxScore}</div>
+        <span class="pill ${x.passed?'ok':'bad'}">${x.passed?'порог ✓':'ниже'}</span></div>`).join('')}`:''}
+    `;
+    document.getElementById('back').onclick=home;
+    document.querySelectorAll('[data-weak]').forEach(b=>b.onclick=()=>{
+      const [sub,grp]=b.dataset.weak.split('|');
+      const list=Q.filter(q=>q.subject===sub && groupOf(sub,q.topic)===grp);
+      topicScreen(sub, grp, list);
+    });
+    window.scrollTo(0,0);
+  }
+
+  if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  }
+  home();
+})();
+</script>
+</body>
+</html>
