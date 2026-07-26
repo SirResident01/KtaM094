@@ -290,8 +290,9 @@
   const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const LETTERS = 'ABCDEFGH';
 
-  // На КТА второй профильный предмет (БД) — один или несколько ответов
-  const isMulti = q => q.type==='multi' || q.subject==='databases';
+  // На КТА несколько правильных ответов бывает ТОЛЬКО во втором профильном
+  // предмете (базы данных). Все остальные блоки — строго один ответ.
+  const isMulti = q => q.subject==='databases';
 
   // варианты перемешиваются; отображаемая буква = позиция, проверка — по исходному ключу
   function prepOpts(q){ return shuffle(q.options); }
