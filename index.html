@@ -221,7 +221,8 @@
         'Future','Present Perfect Continuous','Used to','Passive Voice','Present Simple'],
       'Грамматика':['Articles','Comparatives','Superlatives','Conditionals','Prepositions',
         'Prepositions of time','Gerund/Infinitive','Modal verbs','Reported speech','Quantifiers',
-        'Word order','Relative clauses','Question tags','Some/Any','Adverbs','Too/Enough','So/Such','Possessive case'],
+        'Word order','Relative clauses','Question tags','Some/Any','Adverbs','Too/Enough','So/Such','Possessive case',
+        'Наклонения (Moods)','Возвратные местоимения'],
       'Лексика':['Vocabulary','Phrasal verbs'],
       'Чтение (Reading)':['Reading'],
     },
@@ -288,6 +289,20 @@
 
   function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];} return a; }
   const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // Пояснения выводятся как HTML (нужна разметка <b>, <u> и т. п.), но в тексте
+  // встречаются конструкции вида <stdio.h> — браузер съедал бы их как теги.
+  // Экранируем всё, кроме разрешённой разметки.
+  const ALLOWED_TAG = /^\/?(?:b|i|u|br|code|span|sup|sub|em|strong)(?:\s[^>]*)?>/i;
+  function safeHtml(s){
+    s = String(s==null?'':s);
+    let out='';
+    for(let i=0;i<s.length;i++){
+      if(s[i]==='<' && !ALLOWED_TAG.test(s.slice(i+1))) out+='&lt;';
+      else out+=s[i];
+    }
+    return out;
+  }
   const LETTERS = 'ABCDEFGH';
 
   // На КТА несколько правильных ответов бывает ТОЛЬКО во втором профильном
@@ -502,7 +517,7 @@
     document.getElementById('expH').innerHTML = isRight
       ? '<span style="color:var(--ok)">✓ Верно!</span>'
       : `<span style="color:var(--err)">✗ Неверно</span> <span class="muted" style="font-weight:600">· правильный ответ: ${dispLetters(quiz.opts,q.correct)}</span>`;
-    document.getElementById('expB').innerHTML = q.explain;
+    document.getElementById('expB').innerHTML = safeHtml(q.explain);
     document.getElementById('exp').classList.add('show');
 
     const act=document.getElementById('act');
