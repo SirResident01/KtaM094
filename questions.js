@@ -2681,7 +2681,7 @@ Life for these workers was hard. "We can see that in their skeletons," says Azza
   explain:'Оба верных варианта описывают SQL с разных сторон. По назначению это <b>стандартный язык определения и манипулирования</b> реляционными БД (в нём есть и DDL, и DML). По природе он <b>непроцедурный</b> (декларативный): ты пишешь <i>что</i> нужно получить, а не <i>как</i> это вычислить — план выполнения строит сама СУБД. Поэтому варианты C и F, называющие SQL процедурным, неверны.' },
 { id:'e2d16', real:true, subject:'databases', topic:'SQL', type:'multi',
   code:'В таблице products есть только 3 продукта:\nцена первого 15000, второго 30000, третьего 2000.\n\nselect price from products\nwhere price > all (select 1000 from dual\n                   UNION\n                   select 10000 from dual\n                   UNION\n                   select 12000 from dual);',
-  q:'Результат запроса:',
+  q:'Результат запроса с оператором ALL:',
   options:[
     {k:'A',t:'15000, 30000'},{k:'B',t:'10000, 15000'},{k:'C',t:'2000'},
     {k:'D',t:'30000, 15000'},{k:'E',t:'30000'},{k:'F',t:'15000, 2000'}],
@@ -2689,7 +2689,7 @@ Life for these workers was hard. "We can see that in their skeletons," says Azza
   explain:'Оператор <b>&gt; ALL</b> требует, чтобы значение было больше <b>каждого</b> элемента подзапроса, то есть больше их максимума. Подзапрос даёт {1000, 10000, 12000}, максимум 12000. Проверяем цены: 15000 &gt; 12000 да, 30000 &gt; 12000 да, 2000 нет. Остаются 15000 и 30000 — и варианты A и D перечисляют их в разном порядке. Без ORDER BY порядок строк в SQL не определён, поэтому верны оба.' },
 { id:'e2d17', real:true, subject:'databases', topic:'SQL', type:'multi',
   code:'В таблице products есть только 3 продукта:\nцена первого 15000, второго 20000, третьего 2000.\n\nselect price from products\nwhere price > any (select 1000 from dual\n                   UNION\n                   select 30000 from dual\n                   UNION\n                   select 12000 from dual);',
-  q:'Результат запроса:',
+  q:'Результат запроса с оператором ANY:',
   options:[
     {k:'A',t:'15000, 20000'},{k:'B',t:'20000, 15000, 2000'},{k:'C',t:'2000, 20000, 15000'},
     {k:'D',t:'10000, 15000'},{k:'E',t:'20000'},{k:'F',t:'15000, 2000'},
