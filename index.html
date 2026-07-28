@@ -217,14 +217,24 @@
       'Комбинаторика и множества':['Комбинаторика','Вероятность','Множества'],
     },
     english: {
-      'Времена глагола (Tenses)':['Past Simple','Present Perfect','Present Continuous','Past Perfect',
-        'Future','Present Perfect Continuous','Used to','Passive Voice','Present Simple'],
-      'Грамматика':['Articles','Comparatives','Superlatives','Conditionals','Prepositions',
-        'Prepositions of time','Gerund/Infinitive','Modal verbs','Reported speech','Quantifiers',
-        'Word order','Relative clauses','Question tags','Some/Any','Adverbs','Too/Enough','So/Such','Possessive case',
-        'Наклонения (Moods)','Возвратные местоимения'],
-      'Лексика':['Vocabulary','Phrasal verbs'],
+      '12 времён (Tenses)':['Past Simple','Present Perfect','Present Continuous','Past Perfect',
+        'Future','Present Perfect Continuous','Used to','Present Simple'],
+      'Passive Voice':['Passive Voice'],
+      'Reported Speech':['Reported speech'],
+      'Conditionals':['Conditionals'],
+      'Modal Verbs':['Modal verbs'],
+      'Gerund & Infinitive':['Gerund/Infinitive'],
+      'Irregular Verbs':[],
+      'Articles':['Articles'],
+      'Prepositions':['Prepositions','Prepositions of time'],
+      'Comparative & Superlative':['Comparatives','Superlatives'],
+      'Phrasal Verbs':['Phrasal verbs'],
+      'Relative Clauses':['Relative clauses'],
+      'Subject-Verb Agreement':[],
+      'Vocabulary':['Vocabulary'],
       'Чтение (Reading)':['Reading'],
+      'Грамматика (дополнительно)':['Quantifiers','Word order','Question tags','Some/Any','Adverbs',
+        'Too/Enough','So/Such','Possessive case','Наклонения (Moods)','Возвратные местоимения'],
     },
     algorithms: {
       'Основы, C и JavaScript':['Основы','Строки в C','Заголовочные файлы C','JavaScript',
@@ -243,6 +253,29 @@
     const g = TOPIC_GROUPS[subject] || {};
     for(const name in g){ if(g[name].includes(topic)) return name; }
     return topic;
+  }
+
+  // 14 тем из шпаргалки КТА по английскому (теория доступна всегда)
+  const ENGLISH_PREP = [
+    {key:'12 времён (Tenses)', hint:'Present / Past / Future + going to'},
+    {key:'Passive Voice', hint:'be + V3 по временам'},
+    {key:'Reported Speech', hint:'сдвиг времён и указателей'},
+    {key:'Conditionals', hint:'Zero · First · Second · Third'},
+    {key:'Modal Verbs', hint:'can, must, should, have to…'},
+    {key:'Gerund & Infinitive', hint:'V-ing или to + V1'},
+    {key:'Irregular Verbs', hint:'V1 → V2 → V3'},
+    {key:'Articles', hint:'a/an · the · нулевой'},
+    {key:'Prepositions', hint:'in / on / at и устойчивые пары'},
+    {key:'Comparative & Superlative', hint:'-er/-est · more/most'},
+    {key:'Phrasal Verbs', hint:'look after, give up, turn off…'},
+    {key:'Relative Clauses', hint:'who, which, that, whose…'},
+    {key:'Subject-Verb Agreement', hint:'согласование подлежащего'},
+    {key:'Vocabulary', hint:'синонимы, антонимы, academic words'},
+  ];
+  function englishQsFor(group){
+    const topics = (TOPIC_GROUPS.english && TOPIC_GROUPS.english[group]) || [];
+    if(!topics.length) return [];
+    return Q.filter(q => q.subject==='english' && topics.includes(q.topic));
   }
 
   /* ---------------- storage ---------------- */
@@ -352,6 +385,11 @@
     });
     h += `</div>
 
+    <div class="section-title">Теория</div>
+    <div class="grid">
+      <button class="btn" id="mEngTheory" style="background:linear-gradient(135deg,#0ea5e9,#2563eb)">🇬🇧 Английский · 14 тем с объяснениями</button>
+    </div>
+
     <div class="section-title">Режимы</div>
     <div class="grid">
       <button class="btn warn" id="mExam">🎯 Настоящий экзамен · 130 вопросов, 235 мин</button>
@@ -371,6 +409,7 @@
     app.innerHTML = h;
 
     document.querySelectorAll('.subj').forEach(b=>b.onclick=()=>subjectMenu(b.dataset.subj));
+    document.getElementById('mEngTheory').onclick = englishPrepMenu;
     document.getElementById('mExam').onclick = confirmExam;
     document.getElementById('mRepeat').onclick=()=>{ const l=dueList(); if(l.length) startQuiz(shuffle(l),'Повторение'); };
     document.getElementById('mMist').onclick  =()=>{ const l=mistakeList(); if(l.length) startQuiz(shuffle(l),'Работа над ошибками'); };
@@ -381,6 +420,43 @@
         state={answered:{},seen:{},srs:{},history:[]}; save(); home();
       }
     };
+    window.scrollTo(0,0);
+  }
+
+  /* ============ АНГЛИЙСКИЙ · 14 ТЕМ С ТЕОРИЕЙ ============ */
+  function englishPrepMenu(){
+    const s = subjById('english');
+    let h = `
+    <div class="top">
+      <div class="logo" style="background:linear-gradient(135deg,#0ea5e9,#2563eb)">${s.icon}</div>
+      <div>
+        <h1 style="font-size:17px">Английский · теория</h1>
+        <p class="muted">14 тем, которые часто спрашивают на КТА</p>
+      </div>
+      <button class="back" id="back">‹ Домой</button>
+    </div>
+    <p class="muted" style="margin:0 0 12px;font-size:13.5px">Открой тему — внутри таблица, правила, примеры и типичные ловушки. Если есть вопросы — можно сразу потренироваться.</p>
+    <div class="grid">`;
+    ENGLISH_PREP.forEach((t,i)=>{
+      const list = englishQsFor(t.key);
+      const done = list.filter(q=>q.id in state.answered).length;
+      h += `<button class="subj" data-eng="${esc(t.key)}">
+        <div class="ic" style="background:color-mix(in srgb,#0ea5e9 22%, transparent);font-size:15px;font-weight:800;color:#0ea5e9">${i+1}</div>
+        <div class="tt"><b style="font-size:14.5px">${esc(t.key)}</b>
+          <span>${esc(t.hint)}${list.length?` · ${done}/${list.length} решено`:''}</span></div>
+        <div class="arw">›</div>
+      </button>`;
+    });
+    h += `</div>
+    <div class="grid" style="margin-top:14px">
+      <button class="btn sec" id="toPractice">▶ К практике по английскому</button>
+    </div>`;
+    app.innerHTML = h;
+    document.getElementById('back').onclick = home;
+    document.getElementById('toPractice').onclick = ()=>subjectMenu('english');
+    document.querySelectorAll('[data-eng]').forEach(b=>{
+      b.onclick=()=>topicScreen('english', b.dataset.eng, englishQsFor(b.dataset.eng), englishPrepMenu);
+    });
     window.scrollTo(0,0);
   }
 
@@ -399,6 +475,7 @@
     </div>
     <div class="grid">
       <button class="btn" id="allT">▶ Все вопросы раздела (${list.length})</button>
+      ${id==='english'?`<button class="btn sec" id="engTheory">📖 14 тем с объяснениями</button>`:''}
     </div>
     <div class="section-title">Темы — теория и практика</div>
     <div class="grid">`;
@@ -417,6 +494,8 @@
     app.innerHTML=h;
     document.getElementById('back').onclick=home;
     document.getElementById('allT').onclick=()=>startQuiz(shuffle(list), s.name);
+    const engBtn = document.getElementById('engTheory');
+    if(engBtn) engBtn.onclick = englishPrepMenu;
     document.querySelectorAll('[data-topic]').forEach(b=>{
       b.onclick=()=>topicScreen(id, b.dataset.topic, groups[b.dataset.topic]);
     });
@@ -424,24 +503,31 @@
   }
 
   /* ============ ЭКРАН ТЕМЫ: теория + практика ============ */
-  function topicScreen(subject, group, list){
+  function topicScreen(subject, group, list, backFn){
     const s = subjById(subject);
     const theory = TH[subject+'|'+group];
+    list = list || [];
     const done = list.filter(q=>q.id in state.answered).length;
+    const goBack = typeof backFn==='function' ? backFn : ()=>subjectMenu(subject);
     app.innerHTML = `
     <div class="top">
       <div class="logo" style="background:linear-gradient(135deg,${s.color},#7c3aed);font-size:20px">📖</div>
-      <div><h1 style="font-size:16.5px">${esc(group)}</h1><p class="muted">${s.name} · ${done}/${list.length} решено</p></div>
+      <div><h1 style="font-size:16.5px">${esc(group)}</h1><p class="muted">${s.name}${list.length?` · ${done}/${list.length} решено`:''}</p></div>
       <button class="back" id="back">‹ Назад</button>
     </div>
     ${theory
       ? `<div class="card" style="padding:16px"><div class="theory">${theory}</div></div>`
       : `<div class="card" style="padding:16px"><p class="muted" style="margin:0">Теория по этой теме пока не добавлена — переходи сразу к практике.</p></div>`}
     <div class="footer">
-      <button class="btn" id="practice">▶ Практика · ${list.length} вопросов</button>
+      ${list.length
+        ? `<button class="btn" id="practice">▶ Практика · ${list.length} вопросов</button>`
+        : `<button class="btn sec" id="practice">К списку тем</button>`}
     </div>`;
-    document.getElementById('back').onclick=()=>subjectMenu(subject);
-    document.getElementById('practice').onclick=()=>startQuiz(shuffle(list), group);
+    document.getElementById('back').onclick=goBack;
+    document.getElementById('practice').onclick=()=>{
+      if(list.length) startQuiz(shuffle(list), group);
+      else goBack();
+    };
     window.scrollTo(0,0);
   }
 

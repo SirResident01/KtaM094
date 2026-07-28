@@ -125,125 +125,294 @@ window.KTA_THEORY = {
 </ul>
 <p>Пример: 30 студентов, 18 знают Python, 15 SQL, 8 оба. Хотя бы один: 18+15−8 = 25. Не знают ничего: 30 − 25 = <b>5</b>.</p>`,
 
-/* ========================== АНГЛИЙСКИЙ ========================== */
-'english|Времена глагола (Tenses)': `
-<h3>Таблица времён и маркеров</h3>
+/* ========================== АНГЛИЙСКИЙ · 14 тем КТА ========================== */
+'english|12 времён (Tenses)': `
+<h3>Полная таблица 12 времён + be going to</h3>
 <table>
-<tr><th>Время</th><th>Форма</th><th>Маркеры</th></tr>
-<tr><td>Present Simple</td><td>V / V-s</td><td>usually, always, every day</td></tr>
-<tr><td>Present Continuous</td><td>am/is/are + V-ing</td><td>now, Look!, at the moment</td></tr>
-<tr><td>Past Simple</td><td>V2 (went)</td><td>yesterday, last week, ago, in 2010</td></tr>
-<tr><td>Present Perfect</td><td>have/has + V3</td><td>already, just, ever, never, yet, since, for</td></tr>
-<tr><td>Present Perfect Cont.</td><td>have been + V-ing</td><td>since morning, for two hours</td></tr>
-<tr><td>Past Perfect</td><td>had + V3</td><td>раньше другого прошлого действия</td></tr>
+<tr><th>Время</th><th>Формула</th><th>Когда</th><th>Пример</th></tr>
+<tr><td>Present Simple</td><td>V1 / V+s</td><td>привычки, факты, расписание</td><td><i>I work every day.</i></td></tr>
+<tr><td>Present Continuous</td><td>am/is/are + V-ing</td><td>сейчас, временная ситуация</td><td><i>She is reading now.</i></td></tr>
+<tr><td>Present Perfect</td><td>have/has + V3</td><td>результат важен сейчас; ever/never/just/already/yet</td><td><i>I have finished my work.</i></td></tr>
+<tr><td>Present Perfect Cont.</td><td>have/has been + V-ing</td><td>действие длилось и ещё идёт (for/since)</td><td><i>I have been studying for 2 hours.</i></td></tr>
+<tr><td>Past Simple</td><td>V2</td><td>законченное прошлое с точным временем</td><td><i>I visited Almaty yesterday.</i></td></tr>
+<tr><td>Past Continuous</td><td>was/were + V-ing</td><td>процесс в прошлом; фон для другого действия</td><td><i>I was reading when he called.</i></td></tr>
+<tr><td>Past Perfect</td><td>had + V3</td><td>«раньше другого прошлого»</td><td><i>She had left before I arrived.</i></td></tr>
+<tr><td>Past Perfect Cont.</td><td>had been + V-ing</td><td>длилось до момента в прошлом</td><td><i>I had been waiting for an hour.</i></td></tr>
+<tr><td>Future Simple</td><td>will + V1</td><td>решение сейчас, прогноз, мнение</td><td><i>I will help you.</i></td></tr>
+<tr><td>Future Continuous</td><td>will be + V-ing</td><td>процесс в будущем в определённый момент</td><td><i>I will be working at 5.</i></td></tr>
+<tr><td>Future Perfect</td><td>will have + V3</td><td>завершится к моменту в будущем</td><td><i>I will have finished by 6.</i></td></tr>
+<tr><td>Future Perfect Cont.</td><td>will have been + V-ing</td><td>длится до момента в будущем</td><td><i>I will have been working for 3 hours.</i></td></tr>
+<tr><td>be going to</td><td>am/is/are going to + V1</td><td>план / видимые признаки</td><td><i>It is going to rain.</i></td></tr>
 </table>
+<div class="warn-box"><b>Самые частые ловушки:</b><br>
+• Past Simple (есть yesterday/ago/last…) ≠ Present Perfect (нет точного времени, важен результат сейчас).<br>
+• since = точка отсчёта (since 2020), for = отрезок (for 3 years).<br>
+• will = решение сейчас / мнение; going to = уже есть план или признаки.</div>`,
 
-<h3>Главные различия</h3>
-<ul>
-<li><b>Past Simple vs Present Perfect:</b> есть точное время в прошлом (yesterday, last week) → Past Simple. Важен результат сейчас, времени нет → Present Perfect.<br><i>He got up at six every morning <b>last week</b>.</i> (Past Simple)</li>
-<li><b>Past Perfect</b> — то, что случилось <i>раньше</i> другого прошедшего: <i>When I arrived, the train <b>had</b> already <b>left</b>.</i></li>
-<li><b>since vs for:</b> since + точка отсчёта (since 2015), for + отрезок (for ten years)</li>
-</ul>
-
-<h3>Будущее</h3>
-<ul>
-<li><b>will</b> — решение сейчас, мнение, прогноз: <i>I think it will rain.</i></li>
-<li><b>be going to</b> — есть видимые признаки или план: <i>Look at those clouds! It is going to rain.</i></li>
-</ul>
-
-<h3>Пассивный залог</h3>
-<p><b>be + V3</b>, время показывает глагол be.</p>
-<ul>
-<li>Present: Cheese <b>is made</b> from milk.</li>
-<li>Past: The report <b>was written</b> yesterday.</li>
-</ul>`,
-
-'english|Грамматика': `
-<h3>Артикли</h3>
-<ul>
-<li><b>a</b> перед согласным звуком, <b>an</b> — перед гласным <i>звуком</i></li>
-<li><b>an</b> honest, <b>an</b> hour (h не читается!) — но <b>a</b> university (звук [ju])</li>
-<li><b>the</b> — единственные в своём роде: the Sun, the Moon, the Earth</li>
-</ul>
-
-<h3>Степени сравнения</h3>
-<ul>
-<li>Короткие: fast → fast<b>er</b> → the fast<b>est</b></li>
-<li>Длинные (2+ слога): difficult → <b>more</b> difficult → <b>the most</b> difficult</li>
-<li>Исключения: good → better → the best; bad → worse → the worst</li>
-<li>Конструкция: <i>The more you practise, <b>the better</b> you become.</i></li>
-</ul>
-
-<h3>Условные предложения</h3>
+'english|Passive Voice': `
+<h3>Пассивный залог = be + V3</h3>
+<p>Время показывает глагол <b>be</b>. Действующее лицо — через <b>by</b> (необязательно).</p>
 <table>
-<tr><th>Тип</th><th>If-часть</th><th>Главная часть</th></tr>
-<tr><td>0 (истины)</td><td>Present Simple</td><td>Present Simple</td></tr>
-<tr><td>1 (реальное будущее)</td><td>Present Simple</td><td>will + V</td></tr>
-<tr><td>2 (нереальное настоящее)</td><td>Past Simple (<b>were</b>)</td><td>would + V</td></tr>
-<tr><td>3 (нереальное прошлое)</td><td>Past Perfect (had V3)</td><td>would have + V3</td></tr>
+<tr><th>Время</th><th>Формула</th><th>Пример</th></tr>
+<tr><td>Present Simple</td><td>am/is/are + V3</td><td><i>Houses are built.</i></td></tr>
+<tr><td>Past Simple</td><td>was/were + V3</td><td><i>The letter was written.</i></td></tr>
+<tr><td>Future Simple</td><td>will be + V3</td><td><i>The work will be done.</i></td></tr>
+<tr><td>Present Perfect</td><td>have/has been + V3</td><td><i>The book has been read.</i></td></tr>
+<tr><td>Past Perfect</td><td>had been + V3</td><td><i>The house had been sold.</i></td></tr>
+<tr><td>Modals</td><td>can/must/should + be + V3</td><td><i>It can be done.</i></td></tr>
 </table>
-<div class="warn-box">После <b>if</b> никогда не ставится will: <i>If it <b>rains</b> tomorrow…</i> Во 2-м типе для всех лиц — <b>were</b>: <i>If I <b>were</b> you…</i></div>
+<h3>Active → Passive</h3>
+<p><i>They build houses.</i> → <i>Houses <b>are built</b>.</i><br>
+<i>Someone stole my bike.</i> → <i>My bike <b>was stolen</b>.</i><br>
+<i>She will finish the report.</i> → <i>The report <b>will be finished</b>.</i></p>
+<div class="warn-box">Не путай: <i>is built</i> (Present) / <i>was built</i> (Past) / <i>has been built</i> (Present Perfect). Частая ошибка — забыть been в Perfect.</div>`,
 
+'english|Reported Speech': `
+<h3>Прямая → косвенная речь: сдвиг времён</h3>
+<table>
+<tr><th>Прямая</th><th>Косвенная</th></tr>
+<tr><td>Present Simple</td><td>Past Simple</td></tr>
+<tr><td>Present Continuous</td><td>Past Continuous</td></tr>
+<tr><td>Present Perfect</td><td>Past Perfect</td></tr>
+<tr><td>Past Simple</td><td>Past Perfect</td></tr>
+<tr><td>will</td><td>would</td></tr>
+<tr><td>can</td><td>could</td></tr>
+<tr><td>may</td><td>might</td></tr>
+<tr><td>must / have to</td><td>had to</td></tr>
+</table>
+<h3>Указатели времени и места</h3>
+<table>
+<tr><th>Прямая</th><th>Косвенная</th></tr>
+<tr><td>today</td><td>that day</td></tr>
+<tr><td>tomorrow</td><td>the next day / the following day</td></tr>
+<tr><td>yesterday</td><td>the day before</td></tr>
+<tr><td>now</td><td>then</td></tr>
+<tr><td>here</td><td>there</td></tr>
+<tr><td>this / these</td><td>that / those</td></tr>
+<tr><td>ago</td><td>before</td></tr>
+</table>
+<p><i>“I am busy,” he said.</i> → <i>He said that he <b>was</b> busy.</i><br>
+<i>“I will come tomorrow,” she said.</i> → <i>She said she <b>would</b> come <b>the next day</b>.</i></p>
+<div class="warn-box">После say/tell/ask обычно that (можно опустить). tell + кому: <i>He told <b>me</b> that…</i> (не He told that…).</div>`,
+
+'english|Conditionals': `
+<h3>Условные предложения — 4 типа</h3>
+<table>
+<tr><th>Тип</th><th>If-часть</th><th>Главная</th><th>Смысл</th><th>Пример</th></tr>
+<tr><td>Zero</td><td>Present Simple</td><td>Present Simple</td><td>всегда правда, законы</td><td><i>If you heat ice, it melts.</i></td></tr>
+<tr><td>First</td><td>Present Simple</td><td>will + V1</td><td>реальное будущее</td><td><i>If it rains, I will stay home.</i></td></tr>
+<tr><td>Second</td><td>Past Simple</td><td>would + V1</td><td>нереальное сейчас</td><td><i>If I were rich, I would travel.</i></td></tr>
+<tr><td>Third</td><td>Past Perfect</td><td>would have + V3</td><td>нереальное прошлое</td><td><i>If I had studied, I would have passed.</i></td></tr>
+</table>
+<div class="warn-box"><b>Две железные правила:</b><br>
+1) После <b>if</b> никогда не ставь will: <i>If it <b>rains</b>…</i> (не If it will rain).<br>
+2) Во 2-м типе для всех лиц — <b>were</b>: <i>If I <b>were</b> you…</i></div>`,
+
+'english|Modal Verbs': `
 <h3>Модальные глаголы</h3>
+<table>
+<tr><th>Модал</th><th>Значение</th><th>Пример</th></tr>
+<tr><td>can</td><td>умение, возможность</td><td><i>I can swim.</i></td></tr>
+<tr><td>could</td><td>умение в прошлом / вежливая просьба</td><td><i>I could swim when I was 5.</i></td></tr>
+<tr><td>may</td><td>разрешение / вероятность</td><td><i>May I come in?</i></td></tr>
+<tr><td>might</td><td>меньшая вероятность</td><td><i>It might rain.</i></td></tr>
+<tr><td>must</td><td>обязанность / уверенное предположение</td><td><i>You must be tired.</i></td></tr>
+<tr><td>have to</td><td>вынужденная обязанность (внешняя)</td><td><i>I have to work tomorrow.</i></td></tr>
+<tr><td>should / ought to</td><td>совет</td><td><i>You should study more.</i></td></tr>
+<tr><td>need</td><td>необходимость</td><td><i>You need to rest.</i></td></tr>
+<tr><td>will</td><td>будущее / обещание</td><td><i>I will help you.</i></td></tr>
+<tr><td>would</td><td>вежливость / гипотеза</td><td><i>Would you like some tea?</i></td></tr>
+</table>
+<div class="warn-box"><b>mustn't</b> = запрет («нельзя»). <b>don't have to</b> = «не обязан» (можно не делать). Это разные вещи!</div>`,
+
+'english|Gerund & Infinitive': `
+<h3>Герундий (V-ing) или инфинитив (to + V1)</h3>
+<h4>После этих глаголов — Gerund (V-ing)</h4>
+<p>enjoy, like, love, hate, mind, finish, stop, suggest, avoid, keep, practise, consider, admit, deny</p>
+<p><i>I enjoy <b>reading</b> books.</i> · <i>She finished <b>writing</b>.</i></p>
+<h4>После этих — Infinitive (to + V1)</h4>
+<p>want, decide, hope, promise, need, plan, learn, offer, agree, refuse, expect, afford, manage</p>
+<p><i>She wants <b>to travel</b>.</i> · <i>I decided <b>to stay</b>.</i></p>
+<h4>Оба возможны (смысл может меняться)</h4>
+<p>start, begin, continue, prefer, like, love, hate, remember, forget, stop, try</p>
 <ul>
-<li><b>must</b> — обязанность или уверенное предположение (<i>You must be tired</i>)</li>
-<li><b>mustn't</b> — запрет ≠ <b>don't have to</b> — «не обязан»</li>
-<li><b>can → could</b> — способность в прошлом</li>
+<li><i>stop smoking</i> = бросить курить · <i>stop to smoke</i> = остановиться, чтобы покурить</li>
+<li><i>remember doing</i> = помню, что делал · <i>remember to do</i> = не забудь сделать</li>
 </ul>
+<div class="warn-box">После <b>любого предлога</b> — только -ing: good <b>at</b> playing, interested <b>in</b> learning, look forward <b>to</b> seeing.</div>`,
 
-<h3>Герундий или инфинитив</h3>
+'english|Irregular Verbs': `
+<h3>Частые неправильные глаголы (V1 → V2 → V3)</h3>
+<table>
+<tr><th>V1</th><th>V2</th><th>V3</th><th>Перевод</th></tr>
+<tr><td>be</td><td>was/were</td><td>been</td><td>быть</td></tr>
+<tr><td>become</td><td>became</td><td>become</td><td>становиться</td></tr>
+<tr><td>begin</td><td>began</td><td>begun</td><td>начинать</td></tr>
+<tr><td>break</td><td>broke</td><td>broken</td><td>ломать</td></tr>
+<tr><td>bring</td><td>brought</td><td>brought</td><td>приносить</td></tr>
+<tr><td>buy</td><td>bought</td><td>bought</td><td>покупать</td></tr>
+<tr><td>catch</td><td>caught</td><td>caught</td><td>ловить</td></tr>
+<tr><td>choose</td><td>chose</td><td>chosen</td><td>выбирать</td></tr>
+<tr><td>come</td><td>came</td><td>come</td><td>приходить</td></tr>
+<tr><td>do</td><td>did</td><td>done</td><td>делать</td></tr>
+<tr><td>drink</td><td>drank</td><td>drunk</td><td>пить</td></tr>
+<tr><td>drive</td><td>drove</td><td>driven</td><td>водить</td></tr>
+<tr><td>eat</td><td>ate</td><td>eaten</td><td>есть</td></tr>
+<tr><td>find</td><td>found</td><td>found</td><td>находить</td></tr>
+<tr><td>get</td><td>got</td><td>got/gotten</td><td>получать</td></tr>
+<tr><td>give</td><td>gave</td><td>given</td><td>давать</td></tr>
+<tr><td>go</td><td>went</td><td>gone</td><td>идти</td></tr>
+<tr><td>have</td><td>had</td><td>had</td><td>иметь</td></tr>
+<tr><td>know</td><td>knew</td><td>known</td><td>знать</td></tr>
+<tr><td>leave</td><td>left</td><td>left</td><td>уходить / оставлять</td></tr>
+<tr><td>make</td><td>made</td><td>made</td><td>делать / создавать</td></tr>
+<tr><td>read</td><td>read</td><td>read</td><td>читать</td></tr>
+<tr><td>see</td><td>saw</td><td>seen</td><td>видеть</td></tr>
+<tr><td>speak</td><td>spoke</td><td>spoken</td><td>говорить</td></tr>
+<tr><td>take</td><td>took</td><td>taken</td><td>брать</td></tr>
+<tr><td>tell</td><td>told</td><td>told</td><td>рассказывать</td></tr>
+<tr><td>think</td><td>thought</td><td>thought</td><td>думать</td></tr>
+<tr><td>write</td><td>wrote</td><td>written</td><td>писать</td></tr>
+</table>
+<div class="warn-box">V2 = Past Simple. V3 = для Present/Past Perfect и Passive. Не путай: <i>I went</i> (Past) vs <i>I have gone</i> (Perfect).</div>`,
+
+'english|Articles': `
+<h3>Артикли: a/an · the · нулевой (−)</h3>
+<table>
+<tr><th>Артикль</th><th>Когда</th><th>Примеры</th></tr>
+<tr><td><b>a / an</b></td><td>впервые упоминаем; один из многих; профессии</td><td><i>a book, an apple, a teacher</i></td></tr>
+<tr><td><b>the</b></td><td>уже известно; единственное в своём роде; суперлатив</td><td><i>the sun, the best student, the book I bought</i></td></tr>
+<tr><td><b>− (нет)</b></td><td>имена, языки, страны (обычно), еда вообще, спорт</td><td><i>Anna, English, Kazakhstan, milk, football</i></td></tr>
+</table>
 <ul>
-<li><b>-ing</b> после: enjoy, like, mind, finish, а также после <b>любого предлога</b> (good <b>at</b> playing)</li>
-<li><b>to + V</b> после: want, decide, hope, promise, need</li>
+<li><b>a</b> перед согласным <i>звуком</i>, <b>an</b> — перед гласным: <i>an hour, an honest man</i> (h немое), но <i>a university</i> (звук [ju]).</li>
+<li>the + реки/моря/горы-цепи/уникальные объекты: <i>the Thames, the Alps, the Moon</i>.</li>
+<li>Без артикля: города, большинство стран, улицы: <i>Astana, France, Abay Street</i>. Но: <i>the USA, the UK, the Netherlands</i>.</li>
 </ul>
+<div class="warn-box">Смотри на <b>звук</b>, не на букву: <i>an MBA</i> (эм), <i>a European</i> ([ju]).</div>`,
 
-<h3>Предлоги — устойчивые пары</h3>
-<p>interested <b>in</b> · afraid <b>of</b> · good <b>at</b> · depend <b>on</b> · listen <b>to</b></p>
-<p><b>Время:</b> at 9 o'clock · on Monday · in July / in 2020</p>
+'english|Prepositions': `
+<h3>Предлоги времени и места</h3>
+<table>
+<tr><th>Предлог</th><th>Использование</th><th>Примеры</th></tr>
+<tr><td><b>in</b></td><td>месяц, год, сезон, город, страна; внутри</td><td><i>in July, in 2020, in Almaty, in the room</i></td></tr>
+<tr><td><b>on</b></td><td>день, дата; на поверхности</td><td><i>on Monday, on 5 May, on the table</i></td></tr>
+<tr><td><b>at</b></td><td>точное время, точка</td><td><i>at 5 o'clock, at the bus stop, at home</i></td></tr>
+<tr><td>between</td><td>между двумя</td><td><i>between A and B</i></td></tr>
+<tr><td>among</td><td>среди многих</td><td><i>among friends</i></td></tr>
+<tr><td>into / onto</td><td>движение внутрь / на</td><td><i>go into the room, jump onto the bed</i></td></tr>
+<tr><td>through</td><td>сквозь</td><td><i>through the forest</i></td></tr>
+<tr><td>across</td><td>через (с одной стороны на другую)</td><td><i>across the street</i></td></tr>
+<tr><td>for</td><td>отрезок времени</td><td><i>for 3 years</i></td></tr>
+<tr><td>since</td><td>с момента</td><td><i>since 2019</i></td></tr>
+<tr><td>during</td><td>в течение (событие/период)</td><td><i>during the lesson</i></td></tr>
+<tr><td>by</td><td>к сроку / способ</td><td><i>by Friday, by bus</i></td></tr>
+<tr><td>from … to</td><td>от … до</td><td><i>from 9 to 5</i></td></tr>
+</table>
+<h3>Устойчивые сочетания</h3>
+<p>interested <b>in</b> · afraid <b>of</b> · good <b>at</b> · depend <b>on</b> · listen <b>to</b> · look <b>for</b> · wait <b>for</b></p>
+<div class="warn-box">Памятка времени: <b>at</b> (час) · <b>on</b> (день) · <b>in</b> (месяц/год). at night, но in the morning/afternoon/evening.</div>`,
 
-<h3>Квантификаторы</h3>
+'english|Comparative & Superlative': `
+<h3>Степени сравнения прилагательных</h3>
+<table>
+<tr><th>Тип</th><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
+<tr><td>1 слог</td><td>tall</td><td>taller</td><td>the tallest</td></tr>
+<tr><td>на -y</td><td>happy</td><td>happier</td><td>the happiest</td></tr>
+<tr><td>2+ слога</td><td>beautiful</td><td>more beautiful</td><td>the most beautiful</td></tr>
+<tr><td>исключение</td><td>good</td><td>better</td><td>the best</td></tr>
+<tr><td>исключение</td><td>bad</td><td>worse</td><td>the worst</td></tr>
+<tr><td>исключение</td><td>far</td><td>farther/further</td><td>the farthest/furthest</td></tr>
+<tr><td>исключение</td><td>little</td><td>less</td><td>the least</td></tr>
+<tr><td>исключение</td><td>many/much</td><td>more</td><td>the most</td></tr>
+</table>
 <ul>
-<li>Исчисляемые: many, few, a few (books)</li>
-<li>Неисчисляемые: much, little, a little (water, milk)</li>
-<li><b>a lot of</b> — с обоими</li>
-<li><b>some</b> в утверждениях и вежливых просьбах, <b>any</b> — в отрицаниях и вопросах</li>
+<li>Сравнение: <i>A is <b>taller than</b> B.</i></li>
+<li>Суперлатив: <i>This is <b>the tallest</b> building.</i></li>
+<li>Конструкция: <i><b>The more</b> you practise, <b>the better</b> you become.</i></li>
+<li>Равенство: <i>as … as</i> → <i>as tall as</i>; неравенство: <i>not as … as</i>.</li>
 </ul>
+<div class="warn-box">Не смешивай: <i>more taller</i> — ошибка. Либо -er, либо more — не вместе.</div>`,
 
-<h3>Косвенная речь</h3>
-<p>Время сдвигается на шаг назад: am/is → was · will → would · Present Perfect → Past Perfect.</p>
+'english|Phrasal Verbs': `
+<h3>Частые фразовые глаголы на КТА</h3>
+<table>
+<tr><th>Глагол</th><th>Значение</th><th>Пример</th></tr>
+<tr><td>look after</td><td>заботиться</td><td><i>She looks after her sister.</i></td></tr>
+<tr><td>look for</td><td>искать</td><td><i>I'm looking for my keys.</i></td></tr>
+<tr><td>look up</td><td>искать в словаре</td><td><i>Look up this word.</i></td></tr>
+<tr><td>look forward to</td><td>ждать с нетерпением</td><td><i>I look forward to meeting you.</i></td></tr>
+<tr><td>give up</td><td>бросать, сдаваться</td><td><i>Don't give up!</i></td></tr>
+<tr><td>turn on / off</td><td>включить / выключить</td><td><i>Turn off the lights.</i></td></tr>
+<tr><td>put on</td><td>надеть</td><td><i>Put on your coat.</i></td></tr>
+<tr><td>take off</td><td>снять / взлететь</td><td><i>Take off your shoes.</i></td></tr>
+<tr><td>wake up</td><td>просыпаться</td><td><i>I wake up at 7.</i></td></tr>
+<tr><td>find out</td><td>выяснить</td><td><i>I found out the truth.</i></td></tr>
+<tr><td>go on</td><td>продолжать</td><td><i>Please go on.</i></td></tr>
+<tr><td>put off</td><td>отложить</td><td><i>They put off the meeting.</i></td></tr>
+<tr><td>turn down</td><td>отклонить / убавить</td><td><i>She turned down the offer.</i></td></tr>
+<tr><td>turn up</td><td>появиться / прибавить</td><td><i>He turned up late.</i></td></tr>
+</table>
+<div class="warn-box">look after ≠ look for ≠ look up — разные значения. После look forward <b>to</b> всегда -ing: <i>looking forward to <b>seeing</b></i>.</div>`,
 
-<h3>Прочее</h3>
+'english|Relative Clauses': `
+<h3>Относительные местоимения</h3>
+<table>
+<tr><th>Слово</th><th>К чему</th><th>Пример</th></tr>
+<tr><td><b>who</b></td><td>люди</td><td><i>The man who called is my teacher.</i></td></tr>
+<tr><td><b>which</b></td><td>вещи / животные</td><td><i>The book which I bought is new.</i></td></tr>
+<tr><td><b>that</b></td><td>люди или вещи</td><td><i>The car that I drive is old.</i></td></tr>
+<tr><td><b>whose</b></td><td>чей / чья</td><td><i>The girl whose bag is red…</i></td></tr>
+<tr><td><b>where</b></td><td>место</td><td><i>The city where I live…</i></td></tr>
+<tr><td><b>when</b></td><td>время</td><td><i>The day when we met…</i></td></tr>
+<tr><td><b>why</b></td><td>причина</td><td><i>The reason why I left…</i></td></tr>
+</table>
 <ul>
-<li><b>so</b> + прилагательное (so nice) · <b>such</b> + a + прил. + сущ. (such a nice day)</li>
-<li><b>too</b> + прил. = «слишком» · прил. + <b>enough</b> = «достаточно» (old enough)</li>
-<li><b>who</b> — про людей, <b>which/that</b> — про предметы</li>
-<li>Хвостики: утверждение → отрицательный хвост (<i>You are a student, aren't you?</i>)</li>
-</ul>`,
-
-'english|Лексика': `
-<h3>Частые синонимы</h3>
-<ul>
-<li>enhance = improve (улучшать)</li>
-<li>obtain = get (получать)</li>
-<li>huge = enormous (огромный)</li>
-<li>purchase = buy · reply = answer · assist = help</li>
+<li>Defining (нужно для смысла): запятых нет. <i>Students who study hard pass.</i></li>
+<li>Non-defining (доп. информация): запятые есть, <b>that</b> нельзя. <i>Astana, which is the capital, is modern.</i></li>
 </ul>
+<div class="warn-box">who = люди, which = вещи. that можно почти везде в defining-clauses, но не после запятой.</div>`,
 
+'english|Subject-Verb Agreement': `
+<h3>Согласование подлежащего и сказуемого</h3>
+<table>
+<tr><th>Правило</th><th>Пример</th></tr>
+<tr><td>He / She / It → V+s (Present Simple)</td><td><i>He works. She studies.</i></td></tr>
+<tr><td>I / You / We / They → V1</td><td><i>They work. I study.</i></td></tr>
+<tr><td>Everybody / someone / nobody → единств. число</td><td><i>Everybody <b>knows</b> the answer.</i></td></tr>
+<tr><td>There is + ед.ч. / There are + мн.ч.</td><td><i>There is a book. There are books.</i></td></tr>
+<tr><td>The news / mathematics / physics → ед.ч.</td><td><i>The news <b>is</b> good.</i></td></tr>
+<tr><td>People / police → мн.ч.</td><td><i>People <b>are</b> happy.</i></td></tr>
+<tr><td>A number of + мн.ч. / The number of + ед.ч.</td><td><i>A number of students <b>are</b>… / The number <b>is</b>…</i></td></tr>
+<tr><td>Neither… nor / Either… or — глагол ближе к последнему</td><td><i>Neither he nor they <b>are</b> ready.</i></td></tr>
+</table>
+<div class="warn-box">Не: <i>He work</i> / <i>They works</i>. Смотри на подлежащее, не на слова между ним и глаголом: <i>The list of items <b>is</b> long.</i></div>`,
+
+'english|Vocabulary': `
+<h3>Синонимы</h3>
+<table>
+<tr><th>Слово</th><th>Синоним</th></tr>
+<tr><td>important</td><td>essential, significant</td></tr>
+<tr><td>big / huge</td><td>enormous, vast</td></tr>
+<tr><td>get</td><td>obtain, receive</td></tr>
+<tr><td>buy</td><td>purchase</td></tr>
+<tr><td>help</td><td>assist, aid</td></tr>
+<tr><td>improve</td><td>enhance, develop</td></tr>
+<tr><td>start</td><td>begin, commence</td></tr>
+<tr><td>show</td><td>demonstrate, indicate</td></tr>
+</table>
 <h3>Антонимы</h3>
-<p>increase ↔ decrease · expensive ↔ cheap · accept ↔ refuse · arrive ↔ depart</p>
-
+<p>good ↔ bad · increase ↔ decrease · expensive ↔ cheap · accept ↔ refuse · arrive ↔ depart · success ↔ failure · modern ↔ traditional</p>
+<h3>Частые глаголы</h3>
+<p>develop, improve, provide, include, require, achieve, consider, create, support, reduce</p>
+<h3>Academic words</h3>
+<p>analyze · concept · data · factor · method · research · significant · theory · evidence · process · structure · function</p>
 <h3>make или do</h3>
 <ul>
-<li><b>make</b> a mistake, a decision, a noise, money, progress</li>
-<li><b>do</b> homework, a favour, business, the washing</li>
+<li><b>make</b>: a mistake, a decision, a noise, money, progress, an effort</li>
+<li><b>do</b>: homework, a favour, business, the washing, research</li>
 </ul>
-
-<h3>Фразовые глаголы</h3>
-<ul>
-<li><b>look for</b> — искать · <b>look after</b> — заботиться · <b>look up</b> — искать в словаре · <b>look forward to</b> — с нетерпением ждать</li>
-<li><b>turn off/on</b> — выключить/включить · <b>turn up</b> — появиться · <b>turn down</b> — отклонить</li>
-<li><b>give up</b> — бросить · <b>put off</b> — отложить · <b>find out</b> — выяснить</li>
-</ul>`,
+<div class="warn-box">На КТА часто просят синоним/антоним академического слова. Учи пары, а не одиночные слова.</div>`,
 
 'english|Чтение (Reading)': `
 <h3>Как работать с текстом на экзамене</h3>
@@ -253,23 +422,16 @@ window.KTA_THEORY = {
 <li><b>Scanning</b> — поиск конкретной детали: цифры, имени, даты. Не читай всё подряд.</li>
 <li>Ответ <b>всегда есть в тексте</b>. Не опирайся на собственные знания о мире.</li>
 </ol>
-
 <h3>Типы вопросов</h3>
 <ul>
-<li><b>Main idea</b> — о чём весь текст. Ответ обычно перефразирует первый/последний абзац. Слишком узкие варианты (про одну деталь) — неверные.</li>
-<li><b>Detail</b> — конкретный факт. Найди в тексте нужное место и сравни дословно.</li>
-<li><b>Vocabulary in context</b> — что значит слово <i>здесь</i>. Подставь варианты в предложение.</li>
+<li><b>Main idea</b> — о чём весь текст. Ответ обычно перефразирует первый/последний абзац.</li>
+<li><b>Detail</b> — конкретный факт. Найди в тексте нужное место и сравни.</li>
+<li><b>Vocabulary in context</b> — что значит слово <i>здесь</i>.</li>
 <li><b>Inference</b> — вывод, прямо не сказанный, но следующий из текста.</li>
-<li><b>NOT / EXCEPT</b> — ищи вариант, которого в тексте <b>нет</b>. Три варианта найдёшь в тексте, четвёртый — ответ.</li>
+<li><b>NOT / EXCEPT</b> — ищи вариант, которого в тексте <b>нет</b>.</li>
 </ul>
-
-<div class="warn-box"><b>Ловушки:</b> вариант со словами прямо из текста часто неверный («word matching»). Слова <i>always, never, all, only</i> в вариантах — обычно признак неверного ответа, тексты редко утверждают так категорично.</div>
-
-<h3>Полезные связки в тексте</h3>
-<p><b>Противопоставление:</b> however, although, whereas, on the contrary<br>
-<b>Причина/следствие:</b> because, therefore, thus, as a result<br>
-<b>Добавление:</b> moreover, furthermore, in addition</p>
-<p>Слово <b>however</b> почти всегда сигналит, что дальше идёт главная мысль абзаца.</p>`,
+<div class="warn-box"><b>Ловушки:</b> вариант со словами прямо из текста часто неверный. Слова <i>always, never, all, only</i> в вариантах — обычно признак неверного ответа.</div>
+<p><b>Связки:</b> however, although · because, therefore · moreover, furthermore</p>`,
 
 /* ===================== АЛГОРИТМЫ ===================== */
 'algorithms|Основы, C и JavaScript': `
