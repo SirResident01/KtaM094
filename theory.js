@@ -127,79 +127,133 @@ window.KTA_THEORY = {
 
 /* ========================== АНГЛИЙСКИЙ · 14 тем КТА ========================== */
 'english|12 времён (Tenses)': `
-<h3>Зачем учить времена</h3>
-<p>На КТА почти в каждом варианте есть выбор правильной формы глагола. Смотри на <b>маркеры времени</b> и на смысл: привычка / сейчас / результат / раньше другого прошлого.</p>
+<h3>Главная идея: 12 времён — это таблица 3 × 4</h3>
+<p>Не надо учить 12 отдельных правил. Есть <b>3 времени</b> (когда) и <b>4 аспекта</b> (как), и любое из 12 времён — это их пересечение.</p>
+<ul>
+<li><b>Строка</b> отвечает на вопрос «<i>когда?</i>» — present, past, future</li>
+<li><b>Столбец</b> отвечает на вопрос «<i>как?</i>» — simple, continuous, perfect, perfect continuous</li>
+</ul>
 
-<h3>Сводная таблица</h3>
+<h3>Полная сетка формул</h3>
 <table>
-<tr><th>Время</th><th>Формула</th><th>Маркеры</th><th>Пример</th></tr>
-<tr><td>Present Simple</td><td>V1 / V+s</td><td>usually, always, every day, often</td><td><i>She <b>works</b> in Astana.</i></td></tr>
-<tr><td>Present Continuous</td><td>am/is/are + V-ing</td><td>now, Look!, at the moment, today</td><td><i>She <b>is working</b> now.</i></td></tr>
-<tr><td>Present Perfect</td><td>have/has + V3</td><td>already, just, ever, never, yet, since, for</td><td><i>I <b>have finished</b> the test.</i></td></tr>
-<tr><td>Present Perfect Cont.</td><td>have/has been + V-ing</td><td>for, since + длительность</td><td><i>I <b>have been studying</b> for 2 hours.</i></td></tr>
-<tr><td>Past Simple</td><td>V2</td><td>yesterday, ago, last week, in 2019</td><td><i>I <b>visited</b> Almaty yesterday.</i></td></tr>
-<tr><td>Past Continuous</td><td>was/were + V-ing</td><td>at 5 pm yesterday, while, when</td><td><i>I <b>was reading</b> when he called.</i></td></tr>
-<tr><td>Past Perfect</td><td>had + V3</td><td>before, after, by the time</td><td><i>She <b>had left</b> before I arrived.</i></td></tr>
-<tr><td>Past Perfect Cont.</td><td>had been + V-ing</td><td>for / since до прошлого момента</td><td><i>I <b>had been waiting</b> for an hour.</i></td></tr>
-<tr><td>Future Simple</td><td>will + V1</td><td>I think, probably, tomorrow (решение сейчас)</td><td><i>I <b>will help</b> you.</i></td></tr>
-<tr><td>Future Continuous</td><td>will be + V-ing</td><td>at this time tomorrow</td><td><i>I <b>will be working</b> at 5.</i></td></tr>
-<tr><td>Future Perfect</td><td>will have + V3</td><td>by 6 o'clock, by Monday</td><td><i>I <b>will have finished</b> by 6.</i></td></tr>
-<tr><td>Future Perfect Cont.</td><td>will have been + V-ing</td><td>by … for …</td><td><i>I <b>will have been working</b> for 3 hours.</i></td></tr>
-<tr><td>be going to</td><td>am/is/are going to + V1</td><td>план / видимые признаки</td><td><i>Look! It <b>is going to rain</b>.</i></td></tr>
+<tr><th></th><th>simple</th><th>continuous</th><th>perfect</th><th>perfect continuous</th></tr>
+<tr>
+  <td><b>present</b></td>
+  <td>V / V<b>s</b> (he, she, it)<br><span class="muted">отр.: don't, doesn't</span></td>
+  <td>am, is, are + V<b>ing</b></td>
+  <td>have, has + <b>V3</b></td>
+  <td>have, has + <b>been</b> + V<b>ing</b></td>
+</tr>
+<tr>
+  <td><b>past</b></td>
+  <td>V2, V<b>ed</b><br><span class="muted">отр.: didn't</span></td>
+  <td>was, were + V<b>ing</b></td>
+  <td><b>had</b> + V3</td>
+  <td><b>had</b> + been + V<b>ing</b></td>
+</tr>
+<tr>
+  <td><b>future</b></td>
+  <td><b>will</b> + V<br><span class="muted">отр.: won't</span></td>
+  <td>will <b>be</b> + V<b>ing</b></td>
+  <td>will <b>have</b> + V3</td>
+  <td>will have <b>been</b> + V<b>ing</b></td>
+</tr>
 </table>
 
-<h3>Present Simple — подробно</h3>
-<p><b>Когда:</b> привычки, факты, расписание.</p>
-<ul>
-<li>Утверждение: <i>I play football every Sunday. She <b>works</b> in Astana.</i></li>
-<li>Отрицание: <i>He <b>doesn't</b> play football.</i> (не <i>doesn't plays</i>)</li>
-<li>Вопрос: <i><b>Does</b> she work here?</i> — Yes, she does.</li>
-</ul>
-<p>Для he/she/it добавляй <b>-s/-es</b>: works, goes, watches, studies.</p>
+<div class="warn-box"><b>Закономерности, которые видно прямо в таблице:</b><br>
+• Столбец <b>continuous</b> — везде есть <b>-ing</b><br>
+• Столбец <b>perfect</b> — везде есть <b>V3</b> (третья форма)<br>
+• Столбец <b>perfect continuous</b> — везде есть <b>been + -ing</b><br>
+• Строка <b>future</b> — везде начинается с <b>will</b><br>
+Выучив это, ты соберёшь любое из 12 времён без зубрёжки.</div>
 
-<h3>Present Continuous — подробно</h3>
-<p><b>Когда:</b> действие прямо сейчас или временная ситуация.</p>
-<ul>
-<li><i>Be quiet! The baby <b>is sleeping</b>.</i></li>
-<li><i>I <b>am staying</b> with friends this week.</i> (временно)</li>
-</ul>
-<div class="warn-box">Глаголы состояния обычно <b>не</b> ставят в Continuous: know, like, love, want, need, believe, understand, see, hear.<br>
-Верно: <i>I <b>know</b> the answer.</i> · Неверно: <i>I am knowing…</i></div>
+<h3>Что означает каждый столбец</h3>
 
-<h3>Past Simple vs Present Perfect</h3>
-<p>Это самая частая ловушка на КТА.</p>
+<h4>Simple — просто факт</h4>
+<p>Действие как <b>факт, привычка или регулярность</b>. Не важно, длилось оно или нет — важно, что оно есть, было или будет.</p>
+<p><i>She works in Astana.</i> — работает вообще, это её работа.<br>
+<i>I visited Almaty yesterday.</i> — факт: съездил.</p>
+
+<h4>Continuous — процесс в момент</h4>
+<p>Действие <b>в процессе</b> в конкретный момент. На схеме это дуга <i>над</i> точкой момента: началось раньше, ещё не закончилось.</p>
+<p><i>She is working now.</i> — прямо сейчас в процессе.<br>
+<i>I was reading when he called.</i> — читал, и в этот момент позвонили.</p>
+
+<h4>Perfect — результат к моменту</h4>
+<p>Действие <b>завершилось к какому-то моменту</b>, и важен его результат. На схеме — линия, упирающаяся в точку момента.</p>
+<p><i>I have finished the test.</i> — закончил, и сейчас есть результат.<br>
+<i>She had left before I arrived.</i> — ушла <b>раньше</b>, чем я пришёл.</p>
+
+<h4>Perfect Continuous — длилось до момента</h4>
+<p>Действие <b>длилось какое-то время</b> и подошло к моменту. Отвечает на вопрос «как долго?».</p>
+<p><i>I have been studying for 2 hours.</i> — учусь уже 2 часа.<br>
+<i>I had been waiting for an hour.</i> — прождал час до того момента.</p>
+
+<h3>Что означает каждая строка</h3>
+<ul>
+<li><b>Present</b> — точка отсчёта <b>сейчас</b></li>
+<li><b>Past</b> — точка отсчёта <b>в прошлом</b></li>
+<li><b>Future</b> — точка отсчёта <b>в будущем</b></li>
+</ul>
+<p>Аспект при этом не меняет смысла — меняется только точка, относительно которой всё считается. Сравни один и тот же аспект perfect в трёх временах:</p>
+<ul>
+<li>I <b>have</b> finished — закончил к <i>настоящему</i> моменту</li>
+<li>I <b>had</b> finished — закончил к <i>прошлому</i> моменту</li>
+<li>I <b>will have</b> finished — закончу к <i>будущему</i> моменту</li>
+</ul>
+
+<h3>Маркеры — по ним узнают время в тесте</h3>
 <table>
-<tr><th></th><th>Past Simple</th><th>Present Perfect</th></tr>
-<tr><td>Смысл</td><td>законченное прошлое, время указано</td><td>связь с настоящим, времени нет / важен результат</td></tr>
-<tr><td>Пример</td><td><i>I <b>saw</b> him <b>yesterday</b>.</i></td><td><i>I <b>have seen</b> him <b>today</b> / <b>already</b>.</i></td></tr>
-<tr><td>Маркеры</td><td>yesterday, ago, last…, in 2010</td><td>already, just, ever, never, yet, since, for</td></tr>
+<tr><th>Время</th><th>Маркеры</th><th>Пример</th></tr>
+<tr><td>Present Simple</td><td>usually, always, every day, often, never</td><td>She <b>works</b> in Astana.</td></tr>
+<tr><td>Present Continuous</td><td>now, Look!, Listen!, at the moment</td><td>She <b>is working</b> now.</td></tr>
+<tr><td>Present Perfect</td><td>already, just, ever, never, yet, since, for</td><td>I <b>have finished</b> the test.</td></tr>
+<tr><td>Present Perfect Cont.</td><td>for / since + длительность</td><td>I <b>have been studying</b> for 2 hours.</td></tr>
+<tr><td>Past Simple</td><td>yesterday, ago, last week, in 2019</td><td>I <b>visited</b> Almaty yesterday.</td></tr>
+<tr><td>Past Continuous</td><td>at 5 pm yesterday, while, when</td><td>I <b>was reading</b> when he called.</td></tr>
+<tr><td>Past Perfect</td><td>before, after, by the time</td><td>She <b>had left</b> before I arrived.</td></tr>
+<tr><td>Past Perfect Cont.</td><td>for / since до прошлого момента</td><td>I <b>had been waiting</b> for an hour.</td></tr>
+<tr><td>Future Simple</td><td>I think, probably, tomorrow</td><td>I <b>will help</b> you.</td></tr>
+<tr><td>Future Continuous</td><td>at this time tomorrow</td><td>I <b>will be working</b> at 5.</td></tr>
+<tr><td>Future Perfect</td><td>by 6 o'clock, by Monday</td><td>I <b>will have finished</b> by 6.</td></tr>
+<tr><td>Future Perfect Cont.</td><td>by … for … (длительность к моменту)</td><td>By May I <b>will have been working</b> here for a year.</td></tr>
 </table>
-<p><i>He got up at six every morning <b>last week</b>.</i> → Past Simple (есть last week).<br>
-<i>She <b>has lived</b> here <b>since</b> 2018.</i> → Present Perfect (с тех пор и до сих пор).</p>
 
-<h3>since и for</h3>
-<ul>
-<li><b>since</b> = точка отсчёта: <i>since Monday, since 2020, since I was a child</i></li>
-<li><b>for</b> = отрезок: <i>for two hours, for 3 years, for a long time</i></li>
-</ul>
-<p><i>I have been waiting <b>for</b> an hour.</i> · <i>I have been waiting <b>since</b> 3 o'clock.</i></p>
+<h3>Ловушки, на которых чаще всего теряют баллы</h3>
+<div class="warn-box">
+<b>1. Окончание -s уходит во вспомогательный глагол.</b><br>
+Правильно: What <b>does</b> this word <b>mean</b>? — а не «does … means».<br><br>
 
-<h3>Past Perfect — «раньше другого прошлого»</h3>
-<p>Два действия в прошлом → то, что было <b>раньше</b>, ставь в Past Perfect.</p>
-<p><i>When I arrived, the train <b>had</b> already <b>left</b>.</i><br>
-(сначала уехал поезд, потом я пришёл)</p>
-<p><i>She was tired because she <b>had worked</b> all night.</i></p>
+<b>2. Past Simple или Present Perfect?</b><br>
+Есть точное время в прошлом (yesterday, last week) → <b>Past Simple</b>.<br>
+Период ещё не закончился или важен результат → <b>Present Perfect</b>.<br>
+<i>It is 8 p.m. Did you see Mary this morning?</i> — утро уже прошло, значит Past Simple.<br><br>
 
-<h3>will или going to</h3>
-<ul>
-<li><b>will</b> — решение в момент речи, мнение, прогноз: <i>I think it <b>will</b> rain. OK, I <b>will</b> help you.</i></li>
-<li><b>going to</b> — уже есть план или видно по признакам: <i>I <b>am going to</b> study medicine. Look at those clouds — it <b>is going to</b> rain.</i></li>
-</ul>
-<div class="warn-box"><b>Шпаргалка выбора:</b><br>
-1) Есть yesterday/ago/last? → Past Simple.<br>
-2) Есть already/just/ever/never/yet/since/for и нет точной даты? → Present Perfect.<br>
-3) now / Look! / at the moment? → Present Continuous.<br>
-4) Два прошлых, одно раньше? → Past Perfect для более раннего.</div>`,
+<b>3. С «you» всегда were, а не was.</b><br>
+<i>You <b>were</b> sitting and reading.</i><br><br>
+
+<b>4. since или for?</b><br>
+<b>since</b> + точка отсчёта (since 2015, since Monday)<br>
+<b>for</b> + отрезок (for ten years, for two hours)<br><br>
+
+<b>5. После if и when будущее время не ставится.</b><br>
+<i>If it <b>rains</b> tomorrow…</i> — а не «will rain».
+</div>
+
+<h3>V2 и V3 — что это</h3>
+<p>У правильных глаголов обе формы совпадают и делаются через <b>-ed</b>: work → worked → worked.</p>
+<p>У неправильных их надо знать наизусть — это отдельная тема, но вот самые частые:</p>
+<table>
+<tr><th>V1</th><th>V2 (прошедшее)</th><th>V3 (причастие)</th></tr>
+<tr><td>go</td><td>went</td><td>gone</td></tr>
+<tr><td>see</td><td>saw</td><td>seen</td></tr>
+<tr><td>do</td><td>did</td><td>done</td></tr>
+<tr><td>write</td><td>wrote</td><td>written</td></tr>
+<tr><td>take</td><td>took</td><td>taken</td></tr>
+<tr><td>leave</td><td>left</td><td>left</td></tr>
+</table>
+<p><b>Где какая форма нужна:</b> V2 — только в Past Simple. V3 — во всех perfect и в пассивном залоге.</p>
+`,
 
 'english|Passive Voice': `
 <h3>Что такое Passive</h3>
