@@ -284,6 +284,7 @@
   let state = load();
   state.answered = state.answered || {};   // id -> bool (последний результат)
   state.seen     = state.seen     || {};   // id -> сколько раз отвечал
+  state.lastSeen = state.lastSeen || {};   // id -> когда показывался в последний раз
   state.srs      = state.srs      || {};   // id -> {box, due}
   state.history  = state.history  || [];   // результаты экзаменов
 
@@ -321,6 +322,22 @@
   }
 
   function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+  /* Умное перемешивание: сначала то, что ещё не видел, потом то, что видел реже,
+     а внутри одинаковых — то, что показывалось давнее. Порядок внутри группы
+     случайный, поэтому два прохода подряд не совпадут. */
+  const RECENT_MS = 30*60*1000;   // «только что показывали» — последние полчаса
+  function smartShuffle(list){
+    const now = Date.now();
+    return list.map(q=>{
+      const seen   = state.seen[q.id] || 0;
+      const recent = (now - (state.lastSeen[q.id] || 0)) < RECENT_MS ? 1 : 0;
+      // ключ сортировки: сначала по числу показов, затем отодвигаем только что
+      // виденные, а внутри одинаковых — чистый случай, чтобы порядок не повторялся
+      return {q, key: seen*100 + recent*50 + Math.random()*10};
+    }).sort((a,b)=>a.key-b.key).map(x=>x.q);
+  }
+  function markSeen(id){ state.seen[id]=(state.seen[id]||0)+1; state.lastSeen[id]=Date.now(); }
   const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   // Пояснения выводятся как HTML (нужна разметка <b>, <u> и т. п.), но в тексте
@@ -411,9 +428,9 @@
     document.querySelectorAll('.subj').forEach(b=>b.onclick=()=>subjectMenu(b.dataset.subj));
     document.getElementById('mEngTheory').onclick = englishPrepMenu;
     document.getElementById('mExam').onclick = confirmExam;
-    document.getElementById('mRepeat').onclick=()=>{ const l=dueList(); if(l.length) startQuiz(shuffle(l),'Повторение'); };
-    document.getElementById('mMist').onclick  =()=>{ const l=mistakeList(); if(l.length) startQuiz(shuffle(l),'Работа над ошибками'); };
-    document.getElementById('mQuick').onclick =()=> startQuiz(shuffle(Q).slice(0,20),'Быстрая тренировка');
+    document.getElementById('mRepeat').onclick=()=>{ const l=dueList(); if(l.length) startQuiz(smartShuffle(l),'Повторение'); };
+    document.getElementById('mMist').onclick  =()=>{ const l=mistakeList(); if(l.length) startQuiz(smartShuffle(l),'Работа над ошибками'); };
+    document.getElementById('mQuick').onclick =()=> startQuiz(smartShuffle(Q).slice(0,20),'Быстрая тренировка');
     document.getElementById('mStats').onclick = statsScreen;
     document.getElementById('mReset').onclick=()=>{
       if(confirm('Сбросить весь прогресс, статистику и историю экзаменов?')){
@@ -493,7 +510,7 @@
     h+=`</div>`;
     app.innerHTML=h;
     document.getElementById('back').onclick=home;
-    document.getElementById('allT').onclick=()=>startQuiz(shuffle(list), s.name);
+    document.getElementById('allT').onclick=()=>startQuiz(smartShuffle(list), s.name);
     const engBtn = document.getElementById('engTheory');
     if(engBtn) engBtn.onclick = englishPrepMenu;
     document.querySelectorAll('[data-topic]').forEach(b=>{
@@ -525,7 +542,7 @@
     </div>`;
     document.getElementById('back').onclick=goBack;
     document.getElementById('practice').onclick=()=>{
-      if(list.length) startQuiz(shuffle(list), group);
+      if(list.length) startQuiz(smartShuffle(list), group);
       else goBack();
     };
     window.scrollTo(0,0);
@@ -595,7 +612,7 @@
     });
 
     state.answered[q.id]=isRight;
-    state.seen[q.id]=(state.seen[q.id]||0)+1;
+    markSeen(q.id);
     srsUpdate(q.id, isRight);
     if(isRight) quiz.right++;
     save();
@@ -652,7 +669,7 @@
       <button class="btn ghost" id="rHome">На главную</button>
     </div>`;
     const rm=document.getElementById('rMist');
-    if(rm) rm.onclick=()=>startQuiz(shuffle(wrong), 'Работа над ошибками');
+    if(rm) rm.onclick=()=>startQuiz(smartShuffle(wrong), 'Работа над ошибками');
     document.getElementById('rAgain').onclick=()=>startQuiz(shuffle(quiz.list), quiz.title);
     document.getElementById('rHome').onclick=home;
     window.scrollTo(0,0);
@@ -697,7 +714,7 @@
   function startExam(){
     const list=[];
     EXAM.blocks.forEach(b=>{
-      const pool = shuffle(subjQuestions(b.id));
+      const pool = smartShuffle(subjQuestions(b.id));
       list.push(...pool.slice(0, b.count));
     });
     exam={
@@ -824,7 +841,7 @@
       if(sc===(q.subject==='databases'?2:1)) p.right++;
       // экзамен тоже влияет на прогресс и повторение
       const full = q.correct.slice().sort().join(',')===sel.slice().sort().join(',');
-      if(sel.length){ state.answered[q.id]=full; state.seen[q.id]=(state.seen[q.id]||0)+1; srsUpdate(q.id, full); }
+      if(sel.length){ state.answered[q.id]=full; markSeen(q.id); srsUpdate(q.id, full); }
     });
     const total=Object.values(per).reduce((a,p)=>a+p.score,0);
     const failed=EXAM.blocks.filter(b=>per[b.id].score<b.min);
@@ -882,7 +899,7 @@
       <button class="btn ghost" id="hm">На главную</button>
     </div>`;
     const rv=document.getElementById('rev');
-    if(rv) rv.onclick=()=>startQuiz(wrongList,'Разбор ошибок экзамена');
+    if(rv) rv.onclick=()=>startQuiz(shuffle(wrongList),'Разбор ошибок экзамена');
     document.getElementById('again').onclick=confirmExam;
     document.getElementById('hm').onclick=home;
     exam=null;
