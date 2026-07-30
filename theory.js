@@ -256,45 +256,46 @@ window.KTA_THEORY = {
 `,
 
 'english|Passive Voice': `
-<h3>Что такое Passive</h3>
-<p>В активном залоге важно <b>кто</b> делает. В пассивном — <b>что делают с объектом</b>.</p>
-<p><b>Active:</b> <i>They build houses.</i> (они строят)<br>
-<b>Passive:</b> <i>Houses <b>are built</b>.</i> (дома строятся)</p>
+<h3>Активный и пассивный залог</h3>
+<table>
+<tr><th>Залог</th><th>Что важно</th><th>Пример</th></tr>
+<tr><td>Active</td><td><b>кто</b> делает</td><td>They build houses.</td></tr>
+<tr><td>Passive</td><td><b>что делают</b> с объектом</td><td>Houses <b>are built</b>.</td></tr>
+</table>
 <p>Формула всегда одна: <b>be + V3</b>. Время показывает глагол <b>be</b>.</p>
 
-<h3>Таблица по временам</h3>
+<h3>Пассив по временам</h3>
 <table>
 <tr><th>Время</th><th>Формула</th><th>Active</th><th>Passive</th></tr>
-<tr><td>Present Simple</td><td>am/is/are + V3</td><td><i>They make cheese from milk.</i></td><td><i>Cheese <b>is made</b> from milk.</i></td></tr>
-<tr><td>Past Simple</td><td>was/were + V3</td><td><i>Someone wrote the letter.</i></td><td><i>The letter <b>was written</b>.</i></td></tr>
-<tr><td>Future Simple</td><td>will be + V3</td><td><i>She will finish the work.</i></td><td><i>The work <b>will be finished</b>.</i></td></tr>
-<tr><td>Present Perfect</td><td>have/has been + V3</td><td><i>They have read the book.</i></td><td><i>The book <b>has been read</b>.</i></td></tr>
-<tr><td>Past Perfect</td><td>had been + V3</td><td><i>They had sold the house.</i></td><td><i>The house <b>had been sold</b>.</i></td></tr>
-<tr><td>Modals</td><td>can/must/should + be + V3</td><td><i>You can do it.</i></td><td><i>It <b>can be done</b>.</i></td></tr>
-<tr><td>Present Continuous</td><td>am/is/are being + V3</td><td><i>They are repairing the road.</i></td><td><i>The road <b>is being repaired</b>.</i></td></tr>
+<tr><td>Present Simple</td><td>am/is/are + V3</td><td>They make cheese.</td><td>Cheese <b>is made</b>.</td></tr>
+<tr><td>Past Simple</td><td>was/were + V3</td><td>Someone wrote it.</td><td>It <b>was written</b>.</td></tr>
+<tr><td>Future Simple</td><td>will be + V3</td><td>She will finish it.</td><td>It <b>will be finished</b>.</td></tr>
+<tr><td>Present Perfect</td><td>have/has <b>been</b> + V3</td><td>They have read it.</td><td>It <b>has been read</b>.</td></tr>
+<tr><td>Past Perfect</td><td>had <b>been</b> + V3</td><td>They had sold it.</td><td>It <b>had been sold</b>.</td></tr>
+<tr><td>Present Continuous</td><td>am/is/are <b>being</b> + V3</td><td>They are repairing it.</td><td>It <b>is being repaired</b>.</td></tr>
+<tr><td>Модальные</td><td>can/must/should + <b>be</b> + V3</td><td>You can do it.</td><td>It <b>can be done</b>.</td></tr>
 </table>
 
-<h3>Как перестроить предложение</h3>
-<ol>
-<li>Объект активного → подлежащее пассива.</li>
-<li>Глагол → be (в нужном времени) + V3.</li>
-<li>Кто делал — через <b>by</b> (если важно): <i>The Mona Lisa <b>was painted by</b> Leonardo da Vinci.</i></li>
-</ol>
-<p><i>Someone stole my bike.</i> → <i>My bike <b>was stolen</b>.</i> (someone обычно опускаем)<br>
-<i>People speak English all over the world.</i> → <i>English <b>is spoken</b> all over the world.</i></p>
+<h3>Как перестроить предложение — три шага</h3>
+<table>
+<tr><th>Шаг</th><th>Что делаем</th><th>Пример</th></tr>
+<tr><td>1</td><td>объект актива → подлежащее пассива</td><td>Someone stole <u>my bike</u> → <u>My bike</u> …</td></tr>
+<tr><td>2</td><td>глагол → be (в том же времени) + V3</td><td>… <b>was stolen</b></td></tr>
+<tr><td>3</td><td>деятель через <b>by</b>, если важен</td><td>painted <b>by</b> Leonardo da Vinci</td></tr>
+</table>
+<p>Если деятель неважен или это someone / people — его просто опускают:<br>
+People speak English everywhere. → English <b>is spoken</b> everywhere.</p>
 
-<h3>Ещё примеры</h3>
-<ul>
-<li><i>This bridge <b>was built</b> in 1998.</i></li>
-<li><i>The results <b>will be announced</b> tomorrow.</i></li>
-<li><i>The room <b>is being cleaned</b> now.</i></li>
-<li><i>The documents <b>have already been signed</b>.</i></li>
-<li><i>The problem <b>must be solved</b> quickly.</i></li>
-</ul>
-<div class="warn-box"><b>Частые ошибки:</b><br>
-• Забыть <b>been</b> в Perfect: не <i>has built</i> в пассиве, а <i>has <b>been</b> built</i>.<br>
-• Перепутать время be: <i>is built</i> (сейчас/обычно) ≠ <i>was built</i> (в прошлом).<br>
-• V3 обязателен: <i>was written</i>, не <i>was wrote</i>.</div>`,
+<h3>Частые ошибки</h3>
+<table>
+<tr><th>Ошибка</th><th>Неверно</th><th>Верно</th></tr>
+<tr><td>забыли been в Perfect</td><td>has built</td><td>has <b>been</b> built</td></tr>
+<tr><td>перепутали время be</td><td>is built <i>(о прошлом)</i></td><td><b>was</b> built</td></tr>
+<tr><td>поставили V2 вместо V3</td><td>was wrote</td><td>was <b>written</b></td></tr>
+</table>
+
+<div class="warn-box">Проверяй себя по цепочке: <b>кто действует?</b> Если подлежащее само ничего не делает, а действие направлено <i>на него</i> — нужен пассив.</div>
+`,
 
 'english|Reported Speech': `
 <h3>Что это</h3>
@@ -343,51 +344,38 @@ window.KTA_THEORY = {
 <div class="warn-box">Если вводящий глагол в Present (<i>He says…</i>) — сдвиг времён часто <b>не нужен</b>. Сдвиг типичен после said / told / asked (Past).</div>`,
 
 'english|Conditionals': `
-<h3>Что такое условные</h3>
-<p>Предложения с <b>if</b>: «если…, то…». На КТА нужно узнать тип по смыслу и поставить правильные формы.</p>
-
 <h3>Четыре типа</h3>
 <table>
-<tr><th>Тип</th><th>If-часть</th><th>Главная</th><th>Смысл</th></tr>
+<tr><th>Тип</th><th>If-часть</th><th>Главная часть</th><th>Смысл</th></tr>
 <tr><td><b>Zero</b></td><td>Present Simple</td><td>Present Simple</td><td>всегда правда, законы природы</td></tr>
-<tr><td><b>First</b></td><td>Present Simple</td><td>will + V1</td><td>реальное / вероятное будущее</td></tr>
-<tr><td><b>Second</b></td><td>Past Simple</td><td>would + V1</td><td>нереально сейчас / маловероятно</td></tr>
-<tr><td><b>Third</b></td><td>Past Perfect</td><td>would have + V3</td><td>нереальное прошлое (уже не изменить)</td></tr>
+<tr><td><b>First</b></td><td>Present Simple</td><td><b>will</b> + V1</td><td>реальное будущее</td></tr>
+<tr><td><b>Second</b></td><td>Past Simple (<b>were</b>)</td><td><b>would</b> + V1</td><td>нереально сейчас</td></tr>
+<tr><td><b>Third</b></td><td>Past Perfect (had V3)</td><td><b>would have</b> + V3</td><td>нереальное прошлое</td></tr>
 </table>
 
-<h3>Zero Conditional</h3>
-<p><i>If you <b>heat</b> ice, it <b>melts</b>.</i><br>
-<i>If people <b>don't drink</b> water, they <b>die</b>.</i></p>
-<p>Можно заменить if на <b>when</b>: <i>When you heat ice, it melts.</i></p>
-
-<h3>First Conditional</h3>
-<p><i>If it <b>rains</b> tomorrow, I <b>will stay</b> home.</i><br>
-<i>If you <b>study</b> hard, you <b>will pass</b> the exam.</i><br>
-<i>If she <b>doesn't hurry</b>, she <b>will miss</b> the bus.</i></p>
-<div class="warn-box">После <b>if</b> никогда не ставь will: неверно <i>If it will rain…</i> Верно: <i>If it <b>rains</b>…</i></div>
-
-<h3>Second Conditional</h3>
-<p><i>If I <b>were</b> rich, I <b>would travel</b> the world.</i><br>
-<i>If I <b>had</b> more time, I <b>would learn</b> French.</i><br>
-<i>If he <b>lived</b> closer, we <b>would meet</b> more often.</i></p>
-<p>Для всех лиц в if-части часто <b>were</b> (не was): <i>If I <b>were</b> you, I would accept the job.</i></p>
-
-<h3>Third Conditional</h3>
-<p><i>If I <b>had studied</b>, I <b>would have passed</b>.</i> (но я не учился → не сдал)<br>
-<i>If she <b>had left</b> earlier, she <b>wouldn't have missed</b> the train.</i><br>
-<i>If we <b>had known</b>, we <b>would have helped</b>.</i></p>
+<h3>Примеры по типам</h3>
+<table>
+<tr><th>Тип</th><th>Пример</th><th>Что это значит</th></tr>
+<tr><td>Zero</td><td>If you <b>heat</b> ice, it <b>melts</b>.</td><td>всегда так</td></tr>
+<tr><td>First</td><td>If it <b>rains</b> tomorrow, I <b>will stay</b> home.</td><td>может реально случиться</td></tr>
+<tr><td>Second</td><td>If I <b>were</b> rich, I <b>would travel</b>.</td><td>но я не богат</td></tr>
+<tr><td>Third</td><td>If I <b>had studied</b>, I <b>would have passed</b>.</td><td>не учился → не сдал</td></tr>
+</table>
 
 <h3>Как быстро выбрать тип</h3>
-<ol>
-<li>Всегда / научный факт? → Zero</li>
-<li>Реально может случиться в будущем? → First</li>
-<li>Мечта / нереально сейчас? → Second</li>
-<li>Жалеем о прошлом? → Third</li>
-</ol>
-<p><b>Смешанный пример для тренировки:</b><br>
-<i>If I <b>were</b> you (Second), I <b>wouldn't buy</b> this phone.</i><br>
-<i>If you <b>heat</b> water to 100°C (Zero), it <b>boils</b>.</i><br>
-<i>If I <b>had woken</b> up earlier (Third), I <b>wouldn't have been</b> late.</i></p>`,
+<table>
+<tr><th>Вопрос к себе</th><th>Тип</th></tr>
+<tr><td>Это научный факт, всегда так?</td><td>Zero</td></tr>
+<tr><td>Реально может случиться в будущем?</td><td>First</td></tr>
+<tr><td>Мечта, нереально сейчас?</td><td>Second</td></tr>
+<tr><td>Жалеем о прошлом, уже не изменить?</td><td>Third</td></tr>
+</table>
+
+<div class="warn-box"><b>Главные правила:</b><br>
+• После <b>if</b> никогда не ставится will: верно «If it <b>rains</b>…», неверно «If it will rain…»<br>
+• Во Second Conditional для всех лиц берут <b>were</b>: If I <b>were</b> you, I would accept the job.<br>
+• В Third обе части в прошлом: <b>had</b> + V3 и <b>would have</b> + V3.</div>
+`,
 
 'english|Modal Verbs': `
 <h3>Что такое модальные</h3>
@@ -437,50 +425,47 @@ window.KTA_THEORY = {
 
 'english|Gerund & Infinitive': `
 <h3>Две формы</h3>
-<ul>
-<li><b>Gerund</b> = V-ing (как «существительное»): <i>reading, swimming</i></li>
-<li><b>Infinitive</b> = to + V1: <i>to read, to swim</i></li>
-</ul>
-<p>На КТА часто спрашивают: что поставить после глагола — <b>-ing</b> или <b>to</b>.</p>
-
-<h3>Только Gerund (V-ing)</h3>
-<p>enjoy, like*, love*, hate*, mind, finish, stop*, suggest, avoid, keep, practise, consider, admit, deny, miss, imagine, involve, delay, risk</p>
-<ul>
-<li><i>I enjoy <b>reading</b> books.</i></li>
-<li><i>She finished <b>writing</b> the essay.</i></li>
-<li><i>Would you mind <b>closing</b> the window?</i></li>
-<li><i>He suggested <b>going</b> to the cinema.</i></li>
-<li><i>I avoided <b>talking</b> about politics.</i></li>
-</ul>
-
-<h3>Только Infinitive (to + V1)</h3>
-<p>want, decide, hope, promise, need, plan, learn, offer, agree, refuse, expect, afford, manage, fail, arrange, prepare, seem, appear</p>
-<ul>
-<li><i>She wants <b>to travel</b>.</i></li>
-<li><i>I decided <b>to stay</b> home.</i></li>
-<li><i>He promised <b>to help</b> me.</i></li>
-<li><i>We hope <b>to pass</b> the exam.</i></li>
-<li><i>I can't afford <b>to buy</b> a car.</i></li>
-</ul>
-
-<h3>Оба возможны — но смысл может меняться</h3>
 <table>
-<tr><th>Пара</th><th>Gerund</th><th>Infinitive</th></tr>
-<tr><td>stop</td><td><i>stop <b>smoking</b></i> = бросить курить</td><td><i>stop <b>to smoke</b></i> = остановиться, чтобы покурить</td></tr>
-<tr><td>remember</td><td><i>remember <b>doing</b></i> = помню, что делал</td><td><i>remember <b>to do</b></i> = не забудь сделать</td></tr>
-<tr><td>forget</td><td><i>forget <b>doing</b></i> = забыл, что делал</td><td><i>forget <b>to do</b></i> = забыл сделать</td></tr>
-<tr><td>try</td><td><i>try <b>doing</b></i> = попробовать способ</td><td><i>try <b>to do</b></i> = пытаться / стараться</td></tr>
-<tr><td>regret</td><td><i>regret <b>doing</b></i> = жалеть о сделанном</td><td><i>regret <b>to say</b></i> = с сожалением сообщаю</td></tr>
+<tr><th>Форма</th><th>Как выглядит</th><th>Пример</th></tr>
+<tr><td>Gerund</td><td>V-<b>ing</b> (работает как существительное)</td><td>reading, swimming</td></tr>
+<tr><td>Infinitive</td><td><b>to</b> + V1</td><td>to read, to swim</td></tr>
 </table>
-<p><i>I remembered <b>locking</b> the door.</i> (помню, что закрыл)<br>
-<i>Remember <b>to lock</b> the door!</i> (не забудь закрыть)</p>
+
+<h3>После каких глаголов что ставить</h3>
+<table>
+<tr><th>Только Gerund (-ing)</th><th>Только Infinitive (to)</th></tr>
+<tr>
+<td>enjoy, mind, finish, suggest, <b>avoid</b>, keep, practise, consider, admit, deny, miss, imagine, delay, risk</td>
+<td>want, decide, hope, promise, need, plan, learn, offer, agree, refuse, expect, afford, manage, arrange, seem</td>
+</tr>
+<tr>
+<td>I enjoy <b>reading</b> books.<br>She finished <b>writing</b>.<br>He <b>avoided answering</b> my questions.</td>
+<td>She wants <b>to travel</b>.<br>He promised <b>to help</b> me.<br>I can't afford <b>to buy</b> a car.</td>
+</tr>
+</table>
+
+<h3>Оба возможны — но смысл меняется</h3>
+<table>
+<tr><th>Глагол</th><th>+ Gerund</th><th>+ Infinitive</th></tr>
+<tr><td>stop</td><td>stop <b>smoking</b> = бросить курить</td><td>stop <b>to smoke</b> = остановиться, чтобы покурить</td></tr>
+<tr><td>remember</td><td>remember <b>doing</b> = помню, что делал</td><td>remember <b>to do</b> = не забудь сделать</td></tr>
+<tr><td>forget</td><td>forget <b>doing</b> = забыл, что делал</td><td>forget <b>to do</b> = забыл сделать</td></tr>
+<tr><td>try</td><td>try <b>doing</b> = попробовать способ</td><td>try <b>to do</b> = стараться</td></tr>
+<tr><td>regret</td><td>regret <b>doing</b> = жалеть о сделанном</td><td>regret <b>to say</b> = с сожалением сообщать</td></tr>
+</table>
 
 <h3>После предлога — всегда -ing</h3>
-<p><i>She is good <b>at playing</b> tennis.</i><br>
-<i>I'm interested <b>in learning</b> English.</i><br>
-<i>He left without <b>saying</b> goodbye.</i><br>
-<i>I look forward <b>to meeting</b> you.</i> (to здесь предлог!)</p>
-<div class="warn-box">Запомни списки want/decide/hope → to; enjoy/finish/mind/suggest → -ing. И: после предлога всегда -ing.</div>`,
+<table>
+<tr><th>Сочетание</th><th>Пример</th></tr>
+<tr><td>good <b>at</b></td><td>She is good at <b>playing</b> tennis.</td></tr>
+<tr><td>interested <b>in</b></td><td>I'm interested in <b>learning</b> English.</td></tr>
+<tr><td>without</td><td>He left without <b>saying</b> goodbye.</td></tr>
+<tr><td>look forward <b>to</b></td><td>I look forward to <b>meeting</b> you.</td></tr>
+</table>
+
+<div class="warn-box">В «look forward <b>to</b>» слово to — это <b>предлог</b>, а не частица инфинитива, поэтому дальше идёт -ing, а не начальная форма.<br><br>
+Короткая шпаргалка: want / decide / hope → <b>to</b>; enjoy / finish / mind / avoid → <b>-ing</b>; после любого предлога → <b>-ing</b>.</div>
+`,
 
 'english|Irregular Verbs': `
 <h3>Зачем это нужно</h3>
@@ -532,44 +517,57 @@ window.KTA_THEORY = {
 <div class="warn-box">Не путай пары: <i>went / gone</i>, <i>saw / seen</i>, <i>wrote / written</i>, <i>drank / drunk</i>, <i>began / begun</i>. В Perfect и Passive — только V3.</div>`,
 
 'english|Articles': `
-<h3>Три варианта</h3>
-<p><b>a/an</b> — неопределённый (один из многих, впервые).<br>
-<b>the</b> — определённый (известно какой / единственный).<br>
-<b>−</b> (нулевой) — артикля нет.</p>
+<h3>Три варианта — и всё</h3>
+<table>
+<tr><th>Артикль</th><th>Когда</th><th>Пример</th></tr>
+<tr><td><b>a / an</b></td><td>неопределённый: один из многих, впервые</td><td>I saw <b>a</b> dog.</td></tr>
+<tr><td><b>the</b></td><td>определённый: известно какой / единственный</td><td>Open <b>the</b> door.</td></tr>
+<tr><td><b>—</b></td><td>нулевой: артикля нет вообще</td><td>I like <b>—</b> music.</td></tr>
+</table>
 
-<h3>a / an</h3>
-<ul>
-<li>Перед согласным <b>звуком</b>: <i>a book, a car, a university</i> ([ju])</li>
-<li>Перед гласным <b>звуком</b>: <i>an apple, an hour</i> (h немое), <i>an MBA</i> ([em])</li>
-<li>Профессия: <i>She is <b>a</b> teacher. He is <b>an</b> engineer.</i></li>
-<li>Впервые: <i>I saw <b>a</b> dog. <b>The</b> dog was black.</i> (второй раз — the)</li>
-</ul>
+<h3>Когда a / an</h3>
+<table>
+<tr><th>Случай</th><th>Пример</th></tr>
+<tr><td>перед согласным <b>звуком</b></td><td><b>a</b> book, <b>a</b> car, <b>a</b> university [ju]</td></tr>
+<tr><td>перед гласным <b>звуком</b></td><td><b>an</b> apple, <b>an</b> hour (h немое), <b>an</b> MBA [em]</td></tr>
+<tr><td>профессия</td><td>She is <b>a</b> teacher. He is <b>an</b> engineer.</td></tr>
+<tr><td>упоминаем впервые</td><td>I saw <b>a</b> dog. <b>The</b> dog was black.</td></tr>
+</table>
 
-<h3>the</h3>
-<ul>
-<li>Уже известно / упомянуто: <i>Open <b>the</b> door.</i> (конкретную)</li>
-<li>Единственные: <i><b>the</b> sun, the moon, the Earth, the sky</i></li>
-<li>Суперлатив: <i><b>the</b> best student, the tallest building</i></li>
-<li>Порядковые: <i><b>the</b> first, the second</i></li>
-<li>Реки, моря, горные цепи, пустыни: <i>the Thames, the Alps, the Pacific, the Sahara</i></li>
-<li>Страны во мн.ч. / с Republic/Kingdom: <i>the USA, the UK, the Netherlands</i></li>
-</ul>
+<h3>Когда the</h3>
+<table>
+<tr><th>Случай</th><th>Пример</th></tr>
+<tr><td>уже известно / упоминалось</td><td>Open <b>the</b> door.</td></tr>
+<tr><td>единственные в своём роде</td><td><b>the</b> sun, <b>the</b> moon, <b>the</b> Earth</td></tr>
+<tr><td>превосходная степень</td><td><b>the</b> best student, <b>the</b> tallest building</td></tr>
+<tr><td>порядковые числительные</td><td><b>the</b> first, <b>the</b> second</td></tr>
+<tr><td>реки, моря, горы, пустыни</td><td><b>the</b> Thames, <b>the</b> Alps, <b>the</b> Sahara</td></tr>
+<tr><td>страны во мн. ч. или с Republic / Kingdom</td><td><b>the</b> USA, <b>the</b> UK, <b>the</b> Netherlands</td></tr>
+</table>
 
-<h3>Нулевой артикль (−)</h3>
-<ul>
-<li>Имена: <i>Anna, Nursultan</i></li>
-<li>Города, большинство стран: <i>Astana, Kazakhstan, France</i></li>
-<li>Языки, школьные предметы: <i>English, mathematics</i></li>
-<li>Еда/напитки вообще: <i>Milk is healthy. I like tea.</i></li>
-<li>Спорт: <i>He plays football.</i></li>
-<li>Приёмы пищи: <i>after breakfast, at lunch</i></li>
-</ul>
+<h3>Когда артикля нет</h3>
+<table>
+<tr><th>Случай</th><th>Пример</th></tr>
+<tr><td>имена</td><td>Anna, Nursultan</td></tr>
+<tr><td>города и большинство стран</td><td>Astana, Kazakhstan, France</td></tr>
+<tr><td>языки и школьные предметы</td><td>English, mathematics</td></tr>
+<tr><td>еда и напитки вообще</td><td>Milk is healthy. I like tea.</td></tr>
+<tr><td>спорт</td><td>He plays football.</td></tr>
+<tr><td>приёмы пищи</td><td>after breakfast, at lunch</td></tr>
+</table>
 
-<h3>Примеры-контрасты</h3>
-<p><i>I like <b>−</b> music.</i> (музыка вообще) · <i>I liked <b>the</b> music at the party.</i> (конкретная)<br>
-<i>She goes to <b>−</b> school.</i> (как ученица) · <i>Her mum went to <b>the</b> school.</i> (в здание)<br>
-<i><b>The</b> rich should help <b>the</b> poor.</i> (группы людей)</p>
-<div class="warn-box">Смотри на <b>звук</b>, не букву: <i>an hour</i>, <i>a European</i>, <i>an honest man</i>, <i>a one-way street</i> ([w]).</div>`,
+<h3>Пары-контрасты — тут и ловят</h3>
+<table>
+<tr><th>Без артикля</th><th>С the</th></tr>
+<tr><td>I like <b>—</b> music. <i>(музыка вообще)</i></td><td>I liked <b>the</b> music at the party. <i>(конкретная)</i></td></tr>
+<tr><td>She goes to <b>—</b> school. <i>(учится)</i></td><td>Her mum went to <b>the</b> school. <i>(в здание)</i></td></tr>
+<tr><td><b>—</b> Harvard University <i>(имя вуза первым)</i></td><td><b>the</b> University of Cambridge <i>(с of)</i></td></tr>
+</table>
+
+<div class="warn-box">Смотри на <b>звук</b>, а не на букву:<br>
+<b>an</b> hour · <b>a</b> European · <b>an</b> honest man · <b>a</b> one-way street [w]<br><br>
+Группы людей — через the: <b>the</b> rich should help <b>the</b> poor.</div>
+`,
 
 'english|Prepositions': `
 <h3>Время: in / on / at</h3>
@@ -621,45 +619,42 @@ window.KTA_THEORY = {
 
 'english|Comparative & Superlative': `
 <h3>Три степени</h3>
-<ul>
-<li><b>Positive</b> — обычное: tall, beautiful</li>
-<li><b>Comparative</b> — сравнение двух: taller, more beautiful</li>
-<li><b>Superlative</b> — самый среди многих: the tallest, the most beautiful</li>
-</ul>
-
-<h3>Правила образования</h3>
 <table>
-<tr><th>Тип</th><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
-<tr><td>1 слог</td><td>tall / big / nice</td><td>taller / bigger / nicer</td><td>the tallest / biggest / nicest</td></tr>
-<tr><td>на -y</td><td>happy / easy</td><td>happier / easier</td><td>the happiest / easiest</td></tr>
-<tr><td>2+ слога</td><td>beautiful / interesting</td><td>more beautiful</td><td>the most beautiful</td></tr>
-<tr><td>исключения</td><td>good / bad / far / little / many</td><td>better / worse / farther(further) / less / more</td><td>the best / worst / farthest / least / most</td></tr>
+<tr><th>Степень</th><th>Смысл</th><th>Пример</th></tr>
+<tr><td>Positive</td><td>обычная форма</td><td>tall, beautiful</td></tr>
+<tr><td>Comparative</td><td>сравнение <b>двух</b></td><td>taller, more beautiful</td></tr>
+<tr><td>Superlative</td><td>самый среди <b>многих</b></td><td>the tallest, the most beautiful</td></tr>
 </table>
 
-<h3>Примеры</h3>
-<ul>
-<li><i>A car is <b>faster than</b> a bicycle.</i></li>
-<li><i>This book is <b>more interesting than</b> that one.</i></li>
-<li><i>This is <b>the best</b> film I have ever seen.</i></li>
-<li><i>She is <b>the tallest</b> girl in the class.</i></li>
-<li><i>Today is <b>hotter than</b> yesterday.</i></li>
-</ul>
-
-<h3>Полезные конструкции</h3>
-<ul>
-<li><b>as … as</b> — такой же: <i>He is as tall as his brother.</i></li>
-<li><b>not as … as</b> — не такой: <i>This bag is not as heavy as that one.</i></li>
-<li><b>The + comparative, the + comparative</b>: <i><b>The more</b> you practise, <b>the better</b> you become.</i></li>
-<li><b>than me / than I am</b>: <i>She is older than me.</i></li>
-</ul>
+<h3>Как образуются</h3>
+<table>
+<tr><th>Тип</th><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
+<tr><td>1 слог</td><td>tall / big / nice</td><td>tall<b>er</b> / big<b>ger</b> / nic<b>er</b></td><td>the tall<b>est</b> / big<b>gest</b></td></tr>
+<tr><td>на -y</td><td>happy / easy</td><td>happ<b>ier</b> / eas<b>ier</b></td><td>the happ<b>iest</b> / eas<b>iest</b></td></tr>
+<tr><td>2+ слога</td><td>beautiful / interesting</td><td><b>more</b> beautiful</td><td><b>the most</b> beautiful</td></tr>
+<tr><td>исключения</td><td>good / bad / far / many</td><td>better / worse / further / more</td><td>the best / worst / furthest / most</td></tr>
+</table>
 
 <h3>Правописание</h3>
-<ul>
-<li>big → bi<b>gg</b>er (короткая гласная + одна согласная → удваиваем)</li>
-<li>nice → nic<b>er</b> (немое -e: просто +r)</li>
-<li>happy → happ<b>i</b>er (y → i после согласной)</li>
-</ul>
-<div class="warn-box">Не мешай формы: не <i>more taller</i> и не <i>the most tallest</i>. Либо -er/-est, либо more/most.</div>`,
+<table>
+<tr><th>Правило</th><th>Было</th><th>Стало</th></tr>
+<tr><td>короткая гласная + согласная → удваиваем</td><td>big</td><td>bi<b>gg</b>er</td></tr>
+<tr><td>немое -e → просто +r/+st</td><td>nice</td><td>nic<b>er</b></td></tr>
+<tr><td>y после согласной → i</td><td>happy</td><td>happ<b>i</b>er</td></tr>
+</table>
+
+<h3>Полезные конструкции</h3>
+<table>
+<tr><th>Конструкция</th><th>Смысл</th><th>Пример</th></tr>
+<tr><td>as … as</td><td>такой же</td><td>He is <b>as</b> tall <b>as</b> his brother.</td></tr>
+<tr><td>not as … as</td><td>не такой</td><td>This bag is <b>not as</b> heavy <b>as</b> that one.</td></tr>
+<tr><td>the … , the …</td><td>чем…, тем…</td><td><b>The more</b> you practise, <b>the better</b> you become.</td></tr>
+<tr><td>than</td><td>чем</td><td>She is older <b>than</b> me.</td></tr>
+</table>
+
+<div class="warn-box"><b>Не смешивай формы:</b> нельзя <s>more taller</s> и <s>the most tallest</s>. Либо -er/-est, либо more/most.<br><br>
+После <b>very</b> идёт обычная степень (very fast), а усиливает сравнительную — <b>much</b> (much faster).</div>
+`,
 
 'english|Phrasal Verbs': `
 <h3>Что это</h3>
@@ -699,38 +694,44 @@ window.KTA_THEORY = {
 
 'english|Relative Clauses': `
 <h3>Что это</h3>
-<p>Придаточное, которое уточняет существительное: «человек, <b>который…</b>», «книга, <b>которую…</b>».</p>
-<p><i>The man <b>who called you</b> is my teacher.</i><br>
-<i>This is the book <b>that I told you about</b>.</i></p>
-
-<h3>Местоимения</h3>
+<p>Придаточное, которое уточняет существительное: «человек, <b>который</b>…», «книга, <b>которую</b>…».</p>
 <table>
-<tr><th>Слово</th><th>К чему</th><th>Пример</th></tr>
-<tr><td><b>who</b></td><td>люди (подлежащее / иногда объект)</td><td><i>The woman who lives next door is a doctor.</i></td></tr>
-<tr><td><b>which</b></td><td>вещи, животные</td><td><i>The film which we watched was great.</i></td></tr>
-<tr><td><b>that</b></td><td>люди или вещи (в defining)</td><td><i>The car that I drive is old.</i></td></tr>
-<tr><td><b>whose</b></td><td>чей / чья / чьё</td><td><i>The girl whose bag is red is my sister.</i></td></tr>
-<tr><td><b>where</b></td><td>место</td><td><i>This is the city where I was born.</i></td></tr>
-<tr><td><b>when</b></td><td>время</td><td><i>I remember the day when we met.</i></td></tr>
-<tr><td><b>why</b></td><td>причина</td><td><i>That's the reason why I left.</i></td></tr>
-<tr><td><b>whom</b></td><td>человек-объект (формально)</td><td><i>The man whom I met…</i> (часто who/that)</td></tr>
+<tr><th>Предложение</th><th>Что уточняет</th></tr>
+<tr><td>The man <b>who called you</b> is my teacher.</td><td>какой именно man</td></tr>
+<tr><td>This is the book <b>that I told you about</b>.</td><td>какая именно book</td></tr>
 </table>
 
-<h3>Defining vs Non-defining</h3>
-<ul>
-<li><b>Defining</b> — нужно, чтобы понять о ком речь. Без запятых. that можно.<br>
-<i>Students <b>who study hard</b> pass the exam.</i></li>
-<li><b>Non-defining</b> — доп. информация. Запятые обязательны. <b>that нельзя</b>.<br>
-<i>Astana, <b>which is the capital</b>, is modern.</i><br>
-<i>My brother, <b>who lives in London</b>, is an engineer.</i></li>
-</ul>
+<h3>Какое слово выбрать</h3>
+<table>
+<tr><th>Слово</th><th>К чему относится</th><th>Пример</th></tr>
+<tr><td><b>who</b></td><td>люди</td><td>The woman <b>who</b> lives next door is a doctor.</td></tr>
+<tr><td><b>which</b></td><td>вещи, животные</td><td>The film <b>which</b> we watched was great.</td></tr>
+<tr><td><b>that</b></td><td>люди или вещи (только в defining)</td><td>The car <b>that</b> I drive is old.</td></tr>
+<tr><td><b>whose</b></td><td>чей, чья, чьё</td><td>The girl <b>whose</b> bag is red is my sister.</td></tr>
+<tr><td><b>where</b></td><td>место</td><td>This is the city <b>where</b> I was born.</td></tr>
+<tr><td><b>when</b></td><td>время</td><td>I remember the day <b>when</b> we met.</td></tr>
+<tr><td><b>why</b></td><td>причина</td><td>That's the reason <b>why</b> I left.</td></tr>
+<tr><td><b>whom</b></td><td>человек-объект (формально)</td><td>The man <b>whom</b> I met…</td></tr>
+</table>
 
-<h3>Можно ли опустить местоимение</h3>
-<p>Если оно <b>объект</b> в defining-clause — часто можно:<br>
-<i>The book (that/which) I bought is new.</i><br>
-Если <b>подлежащее</b> — нельзя опускать:<br>
-<i>The man <b>who</b> called is here.</i> (не The man called is here в этом смысле)</p>
-<div class="warn-box">who = люди · which = вещи · that = и то и другое в defining. После запятой that не ставь.</div>`,
+<h3>Defining или Non-defining</h3>
+<table>
+<tr><th></th><th>Defining</th><th>Non-defining</th></tr>
+<tr><td>Зачем</td><td>нужно, чтобы понять <b>о ком речь</b></td><td>просто <b>дополнительная</b> информация</td></tr>
+<tr><td>Запятые</td><td>нет</td><td><b>обязательны</b></td></tr>
+<tr><td>Можно that</td><td>да</td><td><b>нет</b></td></tr>
+<tr><td>Пример</td><td>Students <b>who study hard</b> pass the exam.</td><td>Astana, <b>which is the capital</b>, is modern.</td></tr>
+</table>
+
+<h3>Можно ли опустить слово</h3>
+<table>
+<tr><th>Роль в придаточном</th><th>Опускать</th><th>Пример</th></tr>
+<tr><td><b>объект</b> в defining</td><td>можно</td><td>The book <i>(that)</i> I bought is new.</td></tr>
+<tr><td><b>подлежащее</b></td><td>нельзя</td><td>The man <b>who</b> called is here.</td></tr>
+</table>
+
+<div class="warn-box">Коротко: <b>who</b> — люди, <b>which</b> — вещи, <b>that</b> — и то и другое, но <b>только без запятых</b>. После запятой that не ставится никогда.</div>
+`,
 
 'english|Subject-Verb Agreement': `
 <h3>Главное правило</h3>
@@ -820,40 +821,48 @@ window.KTA_THEORY = {
 <div class="warn-box">Учи пары: important↔essential, increase↔decrease, make a mistake / do homework. На тесте часто ловят именно на них.</div>`,
 
 'english|Чтение (Reading)': `
-<h3>Стратегия на экзамене</h3>
-<ol>
-<li><b>Сначала вопросы</b>, потом текст — сразу понятно, что искать.</li>
-<li><b>Skimming</b> — быстро пробежаться глазами ради общей идеи (заголовок, первый/последний абзац).</li>
-<li><b>Scanning</b> — искать конкретное: число, имя, дату, ключевое слово из вопроса.</li>
-<li>Ответ <b>всегда опирается на текст</b>. Не подставляй «знания о мире», если в тексте иначе.</li>
-</ol>
-
-<h3>Типы вопросов и как решать</h3>
+<h3>Порядок работы с текстом</h3>
 <table>
-<tr><th>Тип</th><th>Что делать</th><th>Пример мышления</th></tr>
-<tr><td>Main idea</td><td>О чём весь текст? Слишком узкий вариант — ловушка</td><td>«про одну деталь» ≠ главная идея</td></tr>
-<tr><td>Detail</td><td>Найди абзац с фактом и сравни дословно/парафразом</td><td>цифры, имена, причины</td></tr>
-<tr><td>Vocabulary in context</td><td>Подставь варианты в предложение</td><td>что значит слово <i>здесь</i></td></tr>
-<tr><td>Inference</td><td>Вывод следует из текста, но не написан прямо</td><td>«из этого следует, что…»</td></tr>
-<tr><td>NOT / EXCEPT</td><td>Три варианта есть в тексте — четвёртого нет</td><td>ищи отсутствующее</td></tr>
+<tr><th>Шаг</th><th>Что делать</th><th>Зачем</th></tr>
+<tr><td>1</td><td>прочитать <b>вопросы</b></td><td>сразу знаешь, что искать</td></tr>
+<tr><td>2</td><td><b>Skimming</b> — быстро пробежать глазами</td><td>поймать общую идею: заголовок, первый и последний абзац</td></tr>
+<tr><td>3</td><td><b>Scanning</b> — искать конкретное</td><td>число, имя, дату, ключевое слово из вопроса</td></tr>
+<tr><td>4</td><td>сверить с текстом дословно</td><td>ответ всегда <b>в тексте</b>, а не в твоих знаниях о мире</td></tr>
 </table>
 
-<h3>Полезные связки</h3>
-<ul>
-<li><b>Противопоставление:</b> however, although, whereas, on the contrary, nevertheless</li>
-<li><b>Причина/следствие:</b> because, therefore, thus, as a result, consequently</li>
-<li><b>Добавление:</b> moreover, furthermore, in addition, also</li>
-<li><b>Пример:</b> for example, for instance, such as</li>
-</ul>
-<p>Слово <b>however</b> часто вводит главную мысль абзаца после контраста.</p>
+<h3>Типы вопросов</h3>
+<table>
+<tr><th>Тип</th><th>Что делать</th><th>Ловушка</th></tr>
+<tr><td><b>Main idea</b></td><td>о чём текст <i>целиком</i></td><td>вариант про одну деталь — слишком узкий</td></tr>
+<tr><td><b>Detail</b></td><td>найти абзац с фактом</td><td>парафраз: слова другие, смысл тот же</td></tr>
+<tr><td><b>Vocabulary in context</b></td><td>подставить варианты в предложение</td><td>самое частое значение слова тут может не подойти</td></tr>
+<tr><td><b>Inference</b></td><td>вывод следует из текста, но прямо не написан</td><td>не домысливать сверх текста</td></tr>
+<tr><td><b>NOT / EXCEPT</b></td><td>три варианта есть в тексте, четвёртого нет</td><td>легко забыть, что ищешь <b>отсутствующее</b></td></tr>
+</table>
 
-<h3>Мини-пример</h3>
+<h3>Слова-связки — по ним видно структуру</h3>
+<table>
+<tr><th>Функция</th><th>Слова</th></tr>
+<tr><td>Противопоставление</td><td>however, although, whereas, on the contrary, nevertheless</td></tr>
+<tr><td>Причина и следствие</td><td>because, therefore, thus, as a result, consequently</td></tr>
+<tr><td>Добавление</td><td>moreover, furthermore, in addition, also</td></tr>
+<tr><td>Пример</td><td>for example, for instance, such as</td></tr>
+</table>
+<p>Слово <b>however</b> почти всегда вводит главную мысль абзаца — до него обычно стоит зачин, который потом опровергают.</p>
+
+<h3>Разбор мини-примера</h3>
 <p><i>Many people think online learning is less effective. <b>However</b>, recent studies show that well-designed courses can be as successful as classroom lessons.</i></p>
-<ul>
-<li>Main idea ≈ онлайн-курсы могут быть не хуже очных (не «многие думают, что хуже» — это только зачин).</li>
-<li>Detail: «recent studies show…»</li>
-</ul>
-<div class="warn-box"><b>Ловушки:</b> вариант с теми же словами, что в тексте, часто неверный (word matching). Слова always / never / all / only — часто признак слишком категоричного (неверного) ответа.</div>`,
+<table>
+<tr><th>Вопрос</th><th>Ответ</th></tr>
+<tr><td>Main idea</td><td>онлайн-курсы могут быть не хуже очных</td></tr>
+<tr><td>А «многие думают, что хуже»?</td><td>это только зачин, его опровергают через however</td></tr>
+<tr><td>Detail</td><td>«recent studies show…»</td></tr>
+</table>
+
+<div class="warn-box"><b>Две главные ловушки:</b><br>
+• Вариант с теми же словами, что в тексте, часто <b>неверный</b> — это «word matching».<br>
+• Слова <b>always, never, all, only</b> в варианте обычно признак слишком категоричного, а значит неверного ответа.</div>
+`,
 
 /* ===================== АЛГОРИТМЫ ===================== */
 'algorithms|Основы, C и JavaScript': `
