@@ -365,6 +365,29 @@
     return keys.map(k => LETTERS[opts.findIndex(o=>o.k===k)]).filter(Boolean).sort().join(', ');
   }
 
+  /* Пояснения ссылаются на буквы («вариант A», «(B, F)»), но варианты
+     перемешиваются — исходная буква уже не та, что видит пользователь.
+     Пересчитываем такие ссылки на фактические буквы. Шаблон намеренно узкий,
+     чтобы не задеть посторонние заглавные буквы вроде «язык C». */
+  /* Только ЗАГЛАВНЫЕ A–H: строчные — это переменные из формул вроде 2(a+b). */
+  const SEP = '(?:,|и|или|,?\\s*а\\s+также)';
+  const LETTER_REF = new RegExp(
+    '([Вв]ариант[а-яё]*\\s+)([A-H](?:\\s*' + SEP + '\\s*[A-H])*)' +
+    '|\\(([A-H](?:\\s*' + SEP + '\\s*[A-H])*)\\)', 'g');
+  function remapLetters(text, opts){
+    if(!opts) return text;
+    const map = {};
+    opts.forEach((o,i)=>{ map[o.k] = LETTERS[i]; });
+    return String(text).replace(LETTER_REF, (m, pre, listA, listB) => {
+      const list = listA !== undefined ? listA : listB;
+      const letters = (list.match(/[A-H]/gi) || []).map(L => map[L.toUpperCase()]);
+      if(letters.some(x => !x)) return m;          // не смогли сопоставить — не трогаем
+      const sep = /или/i.test(list) ? ' или ' : (/\sи\s/i.test(list) ? ' и ' : ', ');
+      const joined = letters.sort().join(letters.length > 1 ? sep : '');
+      return pre !== undefined ? pre + joined : '(' + joined + ')';
+    });
+  }
+
   /* ==================== ГЛАВНАЯ ==================== */
   function home(){
     const o = overall();
@@ -620,7 +643,7 @@
     document.getElementById('expH').innerHTML = isRight
       ? '<span style="color:var(--ok)">✓ Верно!</span>'
       : `<span style="color:var(--err)">✗ Неверно</span> <span class="muted" style="font-weight:600">· правильный ответ: ${dispLetters(quiz.opts,q.correct)}</span>`;
-    document.getElementById('expB').innerHTML = safeHtml(q.explain);
+    document.getElementById('expB').innerHTML = safeHtml(remapLetters(q.explain, quiz.opts));
     document.getElementById('exp').classList.add('show');
 
     const act=document.getElementById('act');
