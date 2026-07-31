@@ -238,10 +238,11 @@
     },
     algorithms: {
       'Основы, C и JavaScript':['Основы','Строки в C','Заголовочные файлы C','JavaScript',
-        'C/указатели','C','Рекурсия','Массивы'],
+        'C/указатели','C','Рекурсия','Массивы','Циклы','Типы данных','Битовые операции',
+        'C++','Строки в C++','ООП'],
       'Логика и системы счисления':['Логика','Системы счисления'],
-      'Сложность и сортировки':['Сложность','Сортировки'],
-      'Структуры данных':['Структуры данных'],
+      'Сложность и сортировки':['Сложность','Сложность алгоритмов','Сортировки','Поиск'],
+      'Структуры данных':['Структуры данных','Хеширование','Деревья','Графы'],
     },
     databases: {
       'SQL-запросы':['SQL SELECT','SQL','SQL JOIN','SQL DML','Агрегатные функции'],
@@ -457,7 +458,7 @@
     document.getElementById('mStats').onclick = statsScreen;
     document.getElementById('mReset').onclick=()=>{
       if(confirm('Сбросить весь прогресс, статистику и историю экзаменов?')){
-        state={answered:{},seen:{},srs:{},history:[]}; save(); home();
+        state={answered:{},seen:{},srs:{},history:[],lastSeen:{}}; save(); home();
       }
     };
     window.scrollTo(0,0);
@@ -504,8 +505,12 @@
   function subjectMenu(id){
     const s = subjById(id);
     const list = subjQuestions(id);
+    const undone = list.filter(q => !(q.id in state.answered));
     const groups = {};
+    // Сначала группы из TOPIC_GROUPS (в заданном порядке), потом редкие «хвосты»
+    const order = Object.keys(TOPIC_GROUPS[id] || {});
     list.forEach(q=>{ const g=groupOf(id,q.topic); (groups[g]=groups[g]||[]).push(q); });
+    const groupNames = order.filter(g=>groups[g]).concat(Object.keys(groups).filter(g=>!order.includes(g)));
 
     let h = `
     <div class="top">
@@ -515,11 +520,12 @@
     </div>
     <div class="grid">
       <button class="btn" id="allT">▶ Все вопросы раздела (${list.length})</button>
+      <button class="btn sec" id="undoneT" ${undone.length?'':'disabled'}>⏳ Только нерешённые (${undone.length||0})</button>
       ${id==='english'?`<button class="btn sec" id="engTheory">📖 14 тем с объяснениями</button>`:''}
     </div>
     <div class="section-title">Темы — теория и практика</div>
     <div class="grid">`;
-    Object.keys(groups).forEach(g=>{
+    groupNames.forEach(g=>{
       const arr=groups[g];
       const done=arr.filter(q=>q.id in state.answered).length;
       const hasTheory = !!TH[id+'|'+g];
@@ -533,7 +539,15 @@
     h+=`</div>`;
     app.innerHTML=h;
     document.getElementById('back').onclick=home;
-    document.getElementById('allT').onclick=()=>startQuiz(smartShuffle(list), s.name);
+    // Берём актуальный список в момент клика — все вопросы subject, без фильтра
+    document.getElementById('allT').onclick=()=>{
+      const all = subjQuestions(id);
+      startQuiz(smartShuffle(all), s.name + ` · все ${all.length}`);
+    };
+    document.getElementById('undoneT').onclick=()=>{
+      const left = subjQuestions(id).filter(q => !(q.id in state.answered));
+      if(left.length) startQuiz(smartShuffle(left), s.name + ` · нерешённые ${left.length}`);
+    };
     const engBtn = document.getElementById('engTheory');
     if(engBtn) engBtn.onclick = englishPrepMenu;
     document.querySelectorAll('[data-topic]').forEach(b=>{
