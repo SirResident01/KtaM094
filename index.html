@@ -86,10 +86,11 @@
   .multi-hint{font-size:12.5px;color:var(--warn);font-weight:600;margin:0 0 12px}
   pre.code{background:#0b0f18;color:#d7e3f5;border:1px solid var(--line);border-radius:12px;
     padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:13.5px;overflow-x:auto;margin:0 0 14px;white-space:pre;line-height:1.45}
+    font-size:13.5px;margin:0 0 14px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;
+    max-height:280px;overflow-y:auto;line-height:1.45}
   .passage{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--brand);
     border-radius:12px;padding:14px;margin:0 0 14px;font-size:14.5px;white-space:pre-wrap;
-    max-height:260px;overflow-y:auto;line-height:1.6}
+    overflow-wrap:anywhere;word-break:break-word;max-height:320px;overflow-y:auto;line-height:1.6}
 
   .opts{display:grid;gap:10px;margin:6px 0 4px}
   .opt{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:14px;
@@ -607,10 +608,16 @@
       <div class="qcount">${quiz.i+1}/${quiz.list.length}</div>
     </div>
     <span class="chip">${s?s.icon+' '+s.name:''} · ${esc(q.topic)}</span>`;
-    if(q.passage) h+=`<div class="passage">${esc(q.passage)}</div>`;
+    // Текст/код — сверху, вопрос — под ним (иначе reading/listening «срезается» визуально)
+    const passage = q.passage || q.code;
+    if(passage){
+      const prose = q.subject==='english' || q.passage;
+      h += prose
+        ? `<div class="passage">${esc(passage)}</div>`
+        : `<pre class="code">${esc(passage)}</pre>`;
+    }
     h+=`<p class="qtext">${esc(q.q)}</p>`;
     if(isMulti(q)) h+=`<p class="multi-hint">⚠ Один или несколько правильных ответов (не более трёх) — отметьте все верные</p>`;
-    if(q.code) h+=`<pre class="code">${esc(q.code)}</pre>`;
     h+=`<div class="opts" id="opts">`;
     quiz.opts.forEach((o,idx)=>{
       h+=`<button class="opt" data-k="${o.k}"><span class="k">${LETTERS[idx]}</span><span class="t">${esc(o.t)}</span></button>`;
@@ -804,10 +811,15 @@
     </div>
     <div class="gridnums" id="nums">${nums}</div>
     <span class="chip">${s.icon} ${s.name} · вопрос ${exam.i+1}</span>`;
-    if(q.passage) h+=`<div class="passage">${esc(q.passage)}</div>`;
+    const passage = q.passage || q.code;
+    if(passage){
+      const prose = q.subject==='english' || q.passage;
+      h += prose
+        ? `<div class="passage">${esc(passage)}</div>`
+        : `<pre class="code">${esc(passage)}</pre>`;
+    }
     h+=`<p class="qtext">${esc(q.q)}</p>`;
     if(isMulti(q)) h+=`<p class="multi-hint">⚠ Один или несколько правильных ответов (не более трёх)</p>`;
-    if(q.code) h+=`<pre class="code">${esc(q.code)}</pre>`;
     h+=`<div class="opts">`;
     opts.forEach((o,idx)=>{
       h+=`<button class="opt${sel.includes(o.k)?' sel':''}" data-k="${o.k}">
