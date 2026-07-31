@@ -1,11 +1,12 @@
 /* Service worker для офлайн-работы (используется только при хостинге по http/https).
    Стратегия «сначала сеть»: онлайн всегда свежая версия, офлайн — из кеша. */
-const CACHE = 'kta-m094-v11';
+const CACHE = 'kta-m094-v12';
 const ASSETS = [
   './',
   './index.html',
   './questions.js',
   './beyba.js',
+  './beyba-eng.js',
   './theory.js',
   './manifest.json',
   './icon.svg'
