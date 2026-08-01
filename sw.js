@@ -1,6 +1,6 @@
 /* Service worker для офлайн-работы (используется только при хостинге по http/https).
    Стратегия «сначала сеть»: онлайн всегда свежая версия, офлайн — из кеша. */
-const CACHE = 'kta-m094-v26';
+const CACHE = 'kta-m094-v27';
 const ASSETS = [
   './',
   './index.html',

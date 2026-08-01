@@ -87,18 +87,18 @@
   pre.code{background:#0b0f18;color:#d7e3f5;border:1px solid var(--line);border-radius:12px;
     padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     font-size:13.5px;margin:0 0 14px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;
-    max-height:280px;overflow-y:auto;line-height:1.45}
+    max-height:420px;overflow-y:auto;line-height:1.45}
   .passage{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--brand);
     border-radius:12px;padding:14px;margin:0 0 14px;font-size:14.5px;white-space:pre-wrap;
     overflow-wrap:anywhere;word-break:break-word;max-height:320px;overflow-y:auto;line-height:1.6}
 
-  .opts{display:grid;gap:10px;margin:6px 0 4px}
+  .opts{display:grid;gap:10px;margin:6px 0 24px;padding-bottom:8px}
   .opt{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:14px;
     background:var(--card);border:1.5px solid var(--line);text-align:left;width:100%;color:var(--txt);
-    font-size:14.5px;transition:border-color .12s, background .12s}
+    font-size:14.5px;transition:border-color .12s, background .12s;overflow:visible}
   .opt .k{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
     font-weight:800;font-size:13px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
-  .opt .t{flex:1;padding-top:2px}
+  .opt .t{flex:1;padding-top:2px;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
   .opt.sel{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 12%, var(--card))}
   .opt.sel .k{background:var(--brand);color:#fff;border-color:var(--brand)}
   .opt.correct{border-color:var(--ok);background:var(--okbg)}
@@ -337,9 +337,9 @@
     return list.map(q=>{
       const seen   = state.seen[q.id] || 0;
       const recent = (now - (state.lastSeen[q.id] || 0)) < RECENT_MS ? 1 : 0;
-      // ключ сортировки: сначала по числу показов, затем отодвигаем только что
-      // виденные, а внутри одинаковых — чистый случай, чтобы порядок не повторялся
-      return {q, key: seen*100 + recent*50 + Math.random()*10};
+      // БД: поднимаем формат КТА (5+ вариантов) выше коротких сливов на 4 пункта
+      const shortDb = q.subject==='databases' && (q.options||[]).length < 5 ? 35 : 0;
+      return {q, key: seen*100 + recent*50 + shortDb + Math.random()*10};
     }).sort((a,b)=>a.key-b.key).map(x=>x.q);
   }
   function markSeen(id){ state.seen[id]=(state.seen[id]||0)+1; state.lastSeen[id]=Date.now(); }
@@ -360,9 +360,11 @@
   }
   const LETTERS = 'ABCDEFGH';
 
-  // На КТА несколько правильных ответов бывает ТОЛЬКО во втором профильном
-  // предмете (базы данных). Все остальные блоки — строго один ответ.
-  const isMulti = q => q.subject==='databases';
+  // На КТА несколько правильных — только в БД и только в формате КТА
+  // (обычно 5–8 вариантов, до 3 верных). Сливы бейба с 4 вариантами и одним
+  // правильным — обычный single choice, иначе кажется, что «ответы срезаны».
+  const isMulti = q => q.subject==='databases' &&
+    ((q.options||[]).length > 4 || (q.correct||[]).length > 1);
 
   // варианты перемешиваются; отображаемая буква = позиция, проверка — по исходному ключу
   function prepOpts(q){ return shuffle(q.options); }
@@ -524,6 +526,9 @@
     </div>
     <div class="grid">
       <button class="btn" id="allT">▶ Все вопросы раздела (${list.length})</button>
+      ${id==='databases' && list.some(q=>(q.options||[]).length>=5)
+        ? `<button class="btn" id="ktaT">▶ Формат КТА · ${list.filter(q=>(q.options||[]).length>=5).length} (5–8 вариантов)</button>`
+        : ''}
       <button class="btn sec" id="undoneT" ${undone.length?'':'disabled'}>⏳ Только нерешённые (${undone.length||0})</button>
       ${id==='english'?`<button class="btn sec" id="engTheory">📖 14 тем с объяснениями</button>`:''}
     </div>
@@ -547,6 +552,11 @@
     document.getElementById('allT').onclick=()=>{
       const all = subjQuestions(id);
       startQuiz(smartShuffle(all), s.name + ` · все ${all.length}`);
+    };
+    const ktaT = document.getElementById('ktaT');
+    if(ktaT) ktaT.onclick=()=>{
+      const kta = subjQuestions(id).filter(q=>(q.options||[]).length>=5);
+      startQuiz(smartShuffle(kta), s.name + ` · формат КТА · ${kta.length}`);
     };
     document.getElementById('undoneT').onclick=()=>{
       const left = subjQuestions(id).filter(q => !(q.id in state.answered));
@@ -578,14 +588,22 @@
       : `<div class="card" style="padding:16px"><p class="muted" style="margin:0">Теория по этой теме пока не добавлена — переходи сразу к практике.</p></div>`}
     <div class="footer">
       ${list.length
-        ? `<button class="btn" id="practice">▶ Практика · ${list.length} вопросов</button>`
+        ? (subject==='databases' && list.some(q=>(q.options||[]).length>=5)
+            ? `<div class="row2">
+                <button class="btn" id="practiceKta">▶ Формат КТА · ${list.filter(q=>(q.options||[]).length>=5).length}</button>
+                <button class="btn sec" id="practice">Все · ${list.length}</button>
+              </div>`
+            : `<button class="btn" id="practice">▶ Практика · ${list.length} вопросов</button>`)
         : `<button class="btn sec" id="practice">К списку тем</button>`}
     </div>`;
     document.getElementById('back').onclick=goBack;
-    document.getElementById('practice').onclick=()=>{
-      if(list.length) startQuiz(smartShuffle(list), group);
+    const startPractice = (arr, title) => {
+      if(arr.length) startQuiz(smartShuffle(arr), title);
       else goBack();
     };
+    document.getElementById('practice').onclick=()=> startPractice(list, group);
+    const ktaBtn = document.getElementById('practiceKta');
+    if(ktaBtn) ktaBtn.onclick=()=> startPractice(list.filter(q=>(q.options||[]).length>=5), group + ' · формат КТА');
     window.scrollTo(0,0);
   }
 
@@ -762,7 +780,14 @@
     const list=[];
     EXAM.blocks.forEach(b=>{
       const pool = smartShuffle(subjQuestions(b.id));
-      list.push(...pool.slice(0, b.count));
+      // БД на экзамене: сначала вопросы формата КТА (5–8 вариантов)
+      let pick = pool;
+      if(b.id==='databases'){
+        const full = pool.filter(q=>(q.options||[]).length>=5);
+        const short = pool.filter(q=>(q.options||[]).length<5);
+        pick = full.concat(short);
+      }
+      list.push(...pick.slice(0, b.count));
     });
     exam={
       list, i:0,
